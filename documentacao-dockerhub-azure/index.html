@@ -1,0 +1,1219 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FIAP DevOps | Java, Docker, Docker Hub, Azure VM e Oracle</title>
+  <style>
+    :root {
+      --fiap: #ed145b;
+      --ink: #111827;
+      --muted: #667085;
+      --line: #d7dee8;
+      --bg: #f3f5f8;
+      --panel: #ffffff;
+      --blue: #0f6cbd;
+      --sky: #dcecff;
+      --green: #158467;
+      --green-soft: #e7f6ee;
+      --yellow: #fff3cd;
+      --orange: #9a5b00;
+      --dark: #0b1220;
+      --code: #111827;
+      --code-text: #eef4ff;
+      --shadow: 0 14px 34px rgba(16, 24, 40, .08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--bg);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.58;
+    }
+
+    a {
+      color: var(--blue);
+    }
+
+    header {
+      background: linear-gradient(135deg, #0b1220 0%, #18253d 58%, #2b1020 100%);
+      color: #fff;
+      border-bottom: 8px solid var(--fiap);
+      padding: 36px 24px 30px;
+    }
+
+    .wrap {
+      width: min(1220px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: #ffbfd2;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 1080px;
+      margin: 0;
+      font-size: clamp(30px, 5vw, 58px);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    header p {
+      max-width: 980px;
+      margin: 16px 0 0;
+      color: #e4e9f2;
+      font-size: 18px;
+    }
+
+    main {
+      padding: 26px 0 56px;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      background: rgba(255, 255, 255, .96);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      padding: 12px;
+      margin-bottom: 22px;
+      backdrop-filter: blur(8px);
+    }
+
+    nav a {
+      display: inline-block;
+      margin: 5px 8px 5px 0;
+      padding: 8px 10px;
+      color: var(--blue);
+      text-decoration: none;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      font-weight: 800;
+      font-size: 14px;
+      background: #fff;
+    }
+
+    section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      padding: 24px;
+      margin: 20px 0;
+    }
+
+    .band {
+      border-top: 7px solid var(--fiap);
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 28px;
+      line-height: 1.18;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 24px 0 10px;
+      font-size: 20px;
+      letter-spacing: 0;
+    }
+
+    h4 {
+      margin: 18px 0 8px;
+      font-size: 16px;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+
+    ul,
+    ol {
+      padding-left: 24px;
+    }
+
+    li {
+      margin: 7px 0;
+    }
+
+    code {
+      font-family: Consolas, Monaco, "Courier New", monospace;
+      font-size: .95em;
+      background: #eef3f8;
+      padding: 2px 5px;
+      border-radius: 4px;
+    }
+
+    pre {
+      margin: 12px 0 18px;
+      padding: 16px;
+      overflow-x: auto;
+      background: var(--code);
+      color: var(--code-text);
+      border-radius: 8px;
+      border: 1px solid #263447;
+    }
+
+    pre code {
+      background: transparent;
+      padding: 0;
+      color: inherit;
+      border-radius: 0;
+      font-size: 14px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 20px;
+      font-size: 15px;
+    }
+
+    th,
+    td {
+      border: 1px solid var(--line);
+      padding: 10px 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #edf4fc;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin: 16px 0;
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      background: #fbfdff;
+      border-radius: 8px;
+      padding: 16px;
+      min-height: 118px;
+    }
+
+    .card strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 16px;
+    }
+
+    .note,
+    .warn,
+    .ok,
+    .fiap-note {
+      padding: 12px 14px;
+      margin: 14px 0;
+      border-left: 5px solid;
+    }
+
+    .note {
+      background: var(--sky);
+      border-left-color: var(--blue);
+    }
+
+    .warn {
+      background: var(--yellow);
+      border-left-color: var(--orange);
+    }
+
+    .ok {
+      background: var(--green-soft);
+      border-left-color: var(--green);
+    }
+
+    .fiap-note {
+      background: #ffe8f0;
+      border-left-color: var(--fiap);
+    }
+
+    .split-title {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: #ffe8f0;
+      color: #a90d3f;
+      font-weight: 800;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .steps {
+      counter-reset: step;
+      display: grid;
+      gap: 18px;
+    }
+
+    .step-block {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 18px;
+    }
+
+    .step-block h3 {
+      margin-top: 0;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .step-block h3::before {
+      counter-increment: step;
+      content: counter(step);
+      display: inline-grid;
+      place-items: center;
+      flex: 0 0 auto;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--fiap);
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    .lab h3::before {
+      background: var(--blue);
+    }
+
+    .challenge h3::before {
+      background: var(--fiap);
+    }
+
+    .mini-flow {
+      display: grid;
+      grid-template-columns: repeat(8, minmax(110px, 1fr));
+      gap: 8px;
+      margin: 14px 0 18px;
+    }
+
+    .mini-flow div {
+      min-height: 78px;
+      border: 1px solid var(--line);
+      border-top: 5px solid var(--fiap);
+      border-radius: 8px;
+      background: #fff;
+      padding: 10px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .architecture {
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      overflow-x: auto;
+    }
+
+    .architecture svg {
+      display: block;
+      min-width: 1080px;
+      width: 100%;
+      height: auto;
+      background: #fff;
+      border: 1px solid #e5eaf2;
+    }
+
+    .legend {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .legend div {
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      font-size: 14px;
+    }
+
+    .score {
+      font-weight: 800;
+      color: var(--fiap);
+      white-space: nowrap;
+    }
+
+    footer {
+      padding: 28px 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 1040px) {
+      .grid,
+      .grid.two,
+      .legend {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .mini-flow {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 680px) {
+      header {
+        padding: 28px 18px 24px;
+      }
+
+      .wrap {
+        width: min(100% - 24px, 1220px);
+      }
+
+      section {
+        padding: 18px;
+      }
+
+      .grid,
+      .grid.two,
+      .legend,
+      .mini-flow {
+        grid-template-columns: 1fr;
+      }
+
+      table {
+        display: block;
+        overflow-x: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <p class="eyebrow">FIAP | DevOps Tools & Cloud Computing | Aula guiada e Challenge 2026</p>
+      <h1>Java Spring Boot em containers: MySQL para aula e Oracle para o Challenge</h1>
+      <p>Material academico, navegavel e passo a passo para conduzir a aula com a aplicacao modelo Java + MySQL e reproduzir a entrega oficial com Java + Oracle usando Docker, Docker Hub, Azure VM e a imagem <code>gvenzl/oracle-xe:21-slim</code>.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav aria-label="Indice da documentacao">
+      <a href="#visao">Visao Geral</a>
+      <a href="#arquitetura">Arquitetura</a>
+      <a href="#referencias">PPTs</a>
+      <a href="#aula">Aula - 8 Passos</a>
+      <a href="#challenge">Challenge - 8 Passos</a>
+      <a href="#criterios">Criterios</a>
+      <a href="#evidencias">Evidencias</a>
+      <a href="#troubleshooting">Troubleshooting</a>
+    </nav>
+
+    <section id="visao" class="band">
+      <div class="split-title">
+        <div>
+          <h2>1. Visao geral do material</h2>
+          <p>Este HTML foi estruturado como um roteiro de aula e como um roteiro de entrega. A primeira parte demonstra o ciclo DevOps com a aplicacao de referencia, usando Java/Spring Boot e MySQL. A segunda parte repete os mesmos 8 passos com o padrao exigido para o Challenge: aplicacao Java/Spring Boot dos alunos e banco Oracle em container Docker.</p>
+        </div>
+        <span class="pill">Dois cenarios no mesmo material</span>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <strong>Cenario A - Aula guiada</strong>
+          <p>Professor conduz os alunos usando o projeto de referencia <code>portalweb</code>, Java/Spring Boot, MySQL, Docker Compose e deploy em VM Azure.</p>
+        </div>
+        <div class="card">
+          <strong>Cenario B - Challenge</strong>
+          <p>Alunos reproduzem os mesmos passos com a propria aplicacao, usando Java/Spring Boot ou .NET, banco Oracle conteinerizado e CRUD funcional.</p>
+        </div>
+        <div class="card">
+          <strong>Resultado esperado</strong>
+          <p>Aplicacao em nuvem, containers em background, imagem no Docker Hub, volume persistente, evidencias tecnicas e acesso externo para avaliacao.</p>
+        </div>
+      </div>
+
+      <div class="fiap-note">
+        <strong>Mensagem para os alunos:</strong> a entrega precisa funcionar em nuvem. Se a aplicacao ficar apenas em <code>localhost</code>, a banca nao conseguira validar a execucao pratica completa.
+      </div>
+    </section>
+
+    <section id="arquitetura" class="band">
+      <h2>2. Arquitetura de referencia</h2>
+      <p>A arquitetura abaixo representa o fluxo que deve ser seguido nos dois cenarios. No cenario de aula, o banco e MySQL. No cenario de Challenge, o banco deve ser Oracle com a imagem <code>gvenzl/oracle-xe:21-slim</code>. A sequencia oficial e: preparar o ambiente local, clonar e compilar, criar Dockerfile/Compose, gerar imagens versionadas, executar container local, publicar no Docker Hub, criar infraestrutura Azure, realizar deploy na VM e validar o CRUD externamente.</p>
+
+      <div class="architecture" aria-label="Diagrama de arquitetura de referencia">
+        <svg viewBox="0 0 1280 720" role="img" aria-labelledby="arch-title arch-desc">
+          <title id="arch-title">Arquitetura de referencia Docker Hub e Azure VM</title>
+          <desc id="arch-desc">Fluxo com ambiente de desenvolvimento, Docker Hub, Azure VM, containers de app e banco, volumes, NSG e cliente externo.</desc>
+
+          <defs>
+            <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+              <path d="M0,0 L0,6 L9,3 z" fill="#111827"></path>
+            </marker>
+            <marker id="dash-arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+              <path d="M0,0 L0,6 L9,3 z" fill="#667085"></path>
+            </marker>
+          </defs>
+
+          <rect x="28" y="180" width="390" height="420" rx="34" fill="#dff1df" stroke="#8ac08a"></rect>
+          <text x="223" y="225" text-anchor="middle" font-size="22" font-weight="700">Ambiente de Desenvolvimento</text>
+
+          <circle cx="92" cy="130" r="36" fill="#fff" stroke="#111827" stroke-width="3"></circle>
+          <text x="92" y="136" text-anchor="middle" font-size="13" font-weight="700">GitHub</text>
+          <text x="92" y="176" text-anchor="middle" font-size="13">Clone do projeto</text>
+          <line x1="92" y1="166" x2="92" y2="278" stroke="#111827" stroke-dasharray="6 6" marker-end="url(#arrow)"></line>
+
+          <rect x="62" y="280" width="78" height="58" fill="#fff" stroke="#d7dee8"></rect>
+          <text x="101" y="313" text-anchor="middle" font-size="13" font-weight="700">VS Code</text>
+          <circle cx="102" cy="372" r="22" fill="#fff" stroke="#111827"></circle>
+          <text x="102" y="378" text-anchor="middle" font-size="18">1</text>
+          <text x="210" y="376" text-anchor="middle" font-size="14">Clone e compilacao local</text>
+
+          <rect x="60" y="430" width="90" height="64" rx="8" fill="#fff" stroke="#d7dee8"></rect>
+          <text x="105" y="466" text-anchor="middle" font-size="14" font-weight="700">Docker</text>
+          <circle cx="105" cy="530" r="22" fill="#fff" stroke="#111827"></circle>
+          <text x="105" y="536" text-anchor="middle" font-size="18">2</text>
+          <text x="230" y="535" text-anchor="middle" font-size="14">Dockerfile e Docker Compose</text>
+
+          <rect x="315" y="330" width="62" height="72" fill="#fff" stroke="#111827"></rect>
+          <line x1="328" y1="340" x2="328" y2="392" stroke="#111827"></line>
+          <line x1="340" y1="340" x2="340" y2="392" stroke="#111827"></line>
+          <line x1="352" y1="340" x2="352" y2="392" stroke="#111827"></line>
+          <line x1="364" y1="340" x2="364" y2="392" stroke="#111827"></line>
+          <text x="346" y="420" text-anchor="middle" font-size="13">Imagem APP</text>
+          <circle cx="345" cy="500" r="22" fill="#fff" stroke="#111827"></circle>
+          <text x="345" y="506" text-anchor="middle" font-size="18">3</text>
+          <text x="238" y="505" text-anchor="middle" font-size="14">Build da imagem com TAG</text>
+          <text x="312" y="548" text-anchor="middle" font-size="13">portalweb:v1, v2, v5, v8...</text>
+
+          <circle cx="405" cy="398" r="22" fill="#fff" stroke="#111827"></circle>
+          <text x="405" y="404" text-anchor="middle" font-size="18">4</text>
+          <text x="500" y="396" font-size="13">docker run --name WISE-CLYVO -p 8080:8080 -d</text>
+          <line x1="377" y1="365" x2="389" y2="384" stroke="#111827" marker-end="url(#arrow)"></line>
+
+          <rect x="470" y="186" width="220" height="138" fill="#fff" stroke="#d7dee8"></rect>
+          <text x="580" y="218" text-anchor="middle" font-size="18" font-weight="700">Docker Hub</text>
+          <text x="580" y="246" text-anchor="middle" font-size="13">Repositorio de imagens</text>
+          <text x="580" y="274" text-anchor="middle" font-size="13">portalweb:v1, v2, v5, v8...</text>
+          <circle cx="470" cy="350" r="22" fill="#fff" stroke="#111827"></circle>
+          <text x="470" y="356" text-anchor="middle" font-size="18">5</text>
+          <text x="598" y="355" text-anchor="middle" font-size="14">Docker push da imagem</text>
+          <line x1="377" y1="360" x2="470" y2="254" stroke="#111827" stroke-dasharray="6 6" marker-end="url(#arrow)"></line>
+
+          <rect x="700" y="220" width="520" height="390" rx="42" fill="#dbeafe" stroke="#79a8e8"></rect>
+          <text x="960" y="252" text-anchor="middle" font-size="16" font-weight="700">Azure - RG, VNet, Subnet, NSG, VM B4ls_v2, Discos e Regras</text>
+
+          <rect x="790" y="330" width="315" height="190" rx="26" fill="#fff3cd" stroke="#e0b343"></rect>
+          <text x="948" y="358" text-anchor="middle" font-size="16" font-weight="700">vm-wise-clyvo-dev-01</text>
+          <text x="948" y="382" text-anchor="middle" font-size="13">Linux Ubuntu + Docker Engine | 8GB memoria</text>
+
+          <rect x="835" y="410" width="72" height="48" fill="#f97316" stroke="#9a3412"></rect>
+          <text x="871" y="438" text-anchor="middle" font-size="13" fill="#fff" font-weight="700">APP</text>
+          <rect x="988" y="410" width="72" height="48" fill="#0f6cbd" stroke="#084a88"></rect>
+          <text x="1024" y="438" text-anchor="middle" font-size="13" fill="#fff" font-weight="700">BANCO</text>
+          <line x1="907" y1="434" x2="988" y2="434" stroke="#111827" marker-end="url(#arrow)"></line>
+
+          <ellipse cx="1024" cy="488" rx="48" ry="15" fill="#16837a"></ellipse>
+          <rect x="976" y="488" width="96" height="38" fill="#c8e6d4"></rect>
+          <ellipse cx="1024" cy="526" rx="48" ry="15" fill="#16837a"></ellipse>
+          <text x="1024" y="565" text-anchor="middle" font-size="14" font-weight="700">Persistencia / volumes</text>
+
+          <rect x="820" y="278" width="90" height="36" fill="#fff" stroke="#d7dee8"></rect>
+          <text x="865" y="302" text-anchor="middle" font-size="13">Oracle/MySQL</text>
+          <rect x="965" y="278" width="90" height="36" fill="#fff" stroke="#d7dee8"></rect>
+          <text x="1010" y="302" text-anchor="middle" font-size="13">Java</text>
+
+          <circle cx="760" cy="300" r="22" fill="#fff" stroke="#111827"></circle>
+          <text x="760" y="306" text-anchor="middle" font-size="18">6</text>
+          <text x="852" y="300" text-anchor="middle" font-size="14">Azure CLI cria infra, NSG 8080/1521</text>
+
+          <circle cx="1120" cy="500" r="22" fill="#fff" stroke="#111827"></circle>
+          <text x="1120" y="506" text-anchor="middle" font-size="18">7</text>
+          <text x="1162" y="488" font-size="13">Docker pull imagens App + Banco</text>
+          <text x="1162" y="508" font-size="13">Git clone estrutura + compose up -d</text>
+          <line x1="690" y1="255" x2="840" y2="410" stroke="#667085" stroke-dasharray="7 7" marker-end="url(#dash-arrow)"></line>
+
+          <path d="M1040 120 C1120 120 1148 160 1148 220 L1148 390" fill="none" stroke="#111827" stroke-dasharray="7 7" marker-end="url(#arrow)"></path>
+          <rect x="1010" y="52" width="80" height="52" fill="#fff" stroke="#0f6cbd" stroke-width="2"></rect>
+          <rect x="1110" y="62" width="76" height="44" fill="#fff" stroke="#111827"></rect>
+          <text x="1130" y="135" text-anchor="middle" font-size="14" font-weight="700">Cliente / Banca</text>
+          <circle cx="1200" cy="80" r="22" fill="#fff" stroke="#111827"></circle>
+          <text x="1200" y="86" text-anchor="middle" font-size="18">8</text>
+          <text x="1045" y="160" font-size="13">http://IP_PUBLICO:8080/api/cadastro</text>
+          <text x="1045" y="180" font-size="13">CRUD: GET, POST, PUT, DELETE</text>
+        </svg>
+      </div>
+
+      <div class="legend">
+        <div><strong>Ambiente local:</strong> clone, edicao, build, Docker Desktop e testes iniciais.</div>
+        <div><strong>Docker Hub:</strong> registry onde a imagem da aplicacao fica disponivel para a VM.</div>
+        <div><strong>Azure:</strong> Resource Group, VNet, Subnet, NSG, VM Linux, Docker e containers.</div>
+        <div><strong>Banca:</strong> acesso externo via IP publico e validacao do CRUD com dados persistidos.</div>
+      </div>
+    </section>
+
+    <section id="referencias" class="band">
+      <h2>3. Referencias academicas usadas</h2>
+      <p>O roteiro consolida os pontos dos materiais de Dockerfile, Docker Compose e Challenge. O texto foi organizado para ser seguido em sala, com explicacao conceitual antes dos comandos e com criterios de avaliacao separados do laboratorio.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Material</th>
+            <th>Aplicacao no roteiro</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>Aula 05 01 versao 2024 - DockerFile.pptx</code></td>
+            <td>Imagem, container, Docker Registry, Dockerfile como receita para construir ambientes DEV, HML e PRD.</td>
+          </tr>
+          <tr>
+            <td><code>Aula 05 01 Docker File e Docker Compose.pptx</code></td>
+            <td><code>FROM</code>, <code>RUN</code>, <code>WORKDIR</code>, <code>COPY</code>, <code>EXPOSE</code>, <code>CMD</code>, <code>ENTRYPOINT</code>, <code>ARG</code>, <code>ENV</code>, <code>USER</code>, <code>services</code>, <code>image</code>, <code>build</code>, <code>ports</code>, <code>depends_on</code>, <code>environment</code>, <code>networks</code> e <code>volumes</code>.</td>
+          </tr>
+          <tr>
+            <td><code>2TDS Fevereiro - Challenge 2026 - 1o Semestre.pptx</code></td>
+            <td>Regras de entrega, criterios de avaliacao, penalidades, obrigatoriedade de nuvem, Azure CLI, CRUD, banco Oracle/H2 e documentacao final.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="aula" class="band">
+      <div class="split-title">
+        <div>
+          <h2>4. Material da aula - 8 passos com Java Spring Boot + MySQL</h2>
+          <p>Este cenario usa o projeto de referencia do professor e segue exatamente a arquitetura: desenvolvimento local nos passos 1 a 5, criacao do ambiente de producao na Azure no passo 6, deploy no passo 7 e validacao externa no passo 8.</p>
+        </div>
+        <span class="pill">Cenario de aprendizagem</span>
+      </div>
+
+      <div class="mini-flow">
+        <div>1. Clone e compila</div>
+        <div>2. Dockerfile e Compose</div>
+        <div>3. Build com TAG</div>
+        <div>4. Docker run</div>
+        <div>5. Docker push</div>
+        <div>6. Azure CLI</div>
+        <div>7. Deploy VM</div>
+        <div>8. CRUD externo</div>
+      </div>
+
+      <div class="steps lab">
+        <article class="step-block">
+          <h3>Clone e compilar a aplicacao localmente</h3>
+          <p>Preparar o ambiente de desenvolvimento local com Git, VS Code, Docker Desktop e Docker Hub. Em seguida, clonar o projeto de referencia e validar a compilacao antes de criar qualquer imagem Docker.</p>
+          <pre><code class="language-bash">git --version
+docker --version
+docker compose version
+docker login
+
+git clone https://github.com/ProfAntonioFigueiredo/Devops-Linux.git
+cd Devops-Linux
+mvn clean package -DskipTests
+
+sed -n '1,160p' Dockerfile
+sed -n '1,220p' docker-compose.yml
+sed -n '1,120p' src/main/resources/application.properties</code></pre>
+          <p><strong>Evidencia esperada:</strong> clone realizado, build Maven concluido e projeto aberto no VS Code.</p>
+        </article>
+
+        <article class="step-block">
+          <h3>Criar Dockerfile com possibilidades principais e Docker Compose</h3>
+          <p>O Dockerfile e a receita da imagem. O Docker Compose coordena a aplicacao com dois containers. Nesta etapa, o professor deve explicar as instrucoes principais do Dockerfile e as secoes essenciais do Compose.</p>
+          <table>
+            <thead>
+              <tr><th>Instrucao</th><th>Significado no Dockerfile</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>FROM</code></td><td>Inicializa o build de uma imagem a partir de uma imagem base.</td></tr>
+              <tr><td><code>RUN</code></td><td>Executa um comando durante o processo de construcao.</td></tr>
+              <tr><td><code>WORKDIR</code></td><td>Define o diretorio corrente.</td></tr>
+              <tr><td><code>COPY</code></td><td>Copia arquivos ou diretorios para o sistema de arquivos da imagem.</td></tr>
+              <tr><td><code>ADD</code></td><td>Copia arquivos, diretorios ou arquivos remotos para a imagem.</td></tr>
+              <tr><td><code>LABEL</code></td><td>Adiciona metadados a imagem.</td></tr>
+              <tr><td><code>ENV</code></td><td>Define variaveis de ambiente.</td></tr>
+              <tr><td><code>VOLUME</code></td><td>Define volumes que devem ser usados pelo container.</td></tr>
+              <tr><td><code>ARG</code></td><td>Define argumento usado no processo de build.</td></tr>
+              <tr><td><code>EXPOSE</code></td><td>Documenta a porta que o container utiliza.</td></tr>
+              <tr><td><code>USER</code></td><td>Define o usuario que executara o processo no container.</td></tr>
+              <tr><td><code>CMD</code></td><td>Define comando ou parametros padrao.</td></tr>
+              <tr><td><code>ENTRYPOINT</code></td><td>Configura o container para ser executado como um executavel.</td></tr>
+            </tbody>
+          </table>
+          <pre><code class="language-dockerfile">FROM maven:3.9.9-eclipse-temurin-17 AS build
+WORKDIR /build
+COPY pom.xml pom.xml
+COPY src src
+RUN mvn clean package -DskipTests
+
+FROM eclipse-temurin:17-jre
+WORKDIR /app
+COPY --from=build /build/target/portalweb-1.0-SNAPSHOT.jar app.jar
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "/app/app.jar"]</code></pre>
+          <pre><code class="language-bash">docker compose config</code></pre>
+          <p><strong>Compose:</strong> explicar <code>services</code>, <code>image</code>, <code>build</code>, <code>ports</code>, <code>depends_on</code>, <code>environment</code>, <code>networks</code> e <code>volumes</code>.</p>
+        </article>
+
+        <article class="step-block">
+          <h3>Criar imagem Docker pelo processo de build e versionar imagens</h3>
+          <p>O processo de build transforma o Dockerfile em imagem. A tag identifica a versao que sera testada, publicada e implantada.</p>
+          <pre><code class="language-bash">docker build -t portalweb:v1 .
+docker build -t portalweb:v2 .
+docker build -t portalweb:v5 .
+docker build -t portalweb:v8 .
+docker image ls portalweb</code></pre>
+          <div class="note">
+            <strong>Padrao demonstrado:</strong><br>
+            Imagem Docker = <code>portalweb:v1</code> ----- TAG<br>
+            Imagem Docker = <code>portalweb:v2</code><br>
+            Imagem Docker = <code>portalweb:v5</code><br>
+            Imagem Docker = <code>portalweb:v8</code><br>
+            Imagem Docker = <code>portalweb:v1000000</code>
+          </div>
+        </article>
+
+        <article class="step-block">
+          <h3>Criar e executar o container Docker localmente</h3>
+          <p>Nesta etapa, a imagem vira container. O comando abaixo cria o container <code>WISE-CLYVO</code>, publica a porta da aplicacao e executa em background.</p>
+          <pre><code class="language-bash">docker run --name WISE-CLYVO -p 8080:8080 -d portalweb:v1
+docker ps
+docker logs WISE-CLYVO --tail 80
+curl http://localhost:8080/alunos</code></pre>
+          <div class="warn">
+            <strong>Observacao didatica:</strong> quando a aplicacao depende do banco, o <code>docker run</code> isolado serve para explicar imagem/container. Para executar App + Banco juntos, usar <code>docker compose up -d</code>.
+          </div>
+        </article>
+
+        <article class="step-block">
+          <h3>Docker push para levar as imagens ao repositorio Docker</h3>
+          <p>Depois de criar e testar as imagens, publicar no Docker Hub para que a VM de producao consiga executar <code>docker pull</code>.</p>
+          <pre><code class="language-bash">export DOCKERHUB_USER="seu_usuario_dockerhub"
+
+docker tag portalweb:v1 "$DOCKERHUB_USER/portalweb:v1"
+docker tag portalweb:v2 "$DOCKERHUB_USER/portalweb:v2"
+docker tag portalweb:v5 "$DOCKERHUB_USER/portalweb:v5"
+
+docker push "$DOCKERHUB_USER/portalweb:v1"
+docker push "$DOCKERHUB_USER/portalweb:v2"
+docker push "$DOCKERHUB_USER/portalweb:v5"</code></pre>
+          <p><strong>Evidencia esperada:</strong> repositorio do Docker Hub com as tags publicadas.</p>
+        </article>
+
+        <article class="step-block">
+          <h3>Criar ambiente de producao no Azure usando Azure CLI</h3>
+          <p>Criar Resource Group, VNet, Subnet, NSG, VM <code>Standard_B4ls_v2</code> com 8GB de memoria, discos e regras de inbound/outbound. A VM deve ter memoria suficiente para rodar App e Banco.</p>
+          <pre><code class="language-bash">az login
+az group create --name rg_Challenge_Wise_Clyvo_VET --location brazilsouth
+
+az network vnet create \
+  --resource-group rg_Challenge_Wise_Clyvo_VET \
+  --location brazilsouth \
+  --name vnet_wise_dev \
+  --address-prefixes 10.10.0.0/16 \
+  --subnet-name sub_net_dev \
+  --subnet-prefixes 10.10.1.0/24
+
+az network nsg create \
+  --resource-group rg_Challenge_Wise_Clyvo_VET \
+  --location brazilsouth \
+  --name nsg_portalweb_dev
+
+az vm create \
+  --resource-group rg_Challenge_Wise_Clyvo_VET \
+  --name vm-wise-clyvo-dev-01 \
+  --image Ubuntu2204 \
+  --size Standard_B4ls_v2 \
+  --admin-username azureuser \
+  --generate-ssh-keys \
+  --vnet-name vnet_wise_dev \
+  --subnet sub_net_dev \
+  --nsg nsg_portalweb_dev
+
+az vm open-port --resource-group rg_Challenge_Wise_Clyvo_VET --name vm-wise-clyvo-dev-01 --port 8080
+az vm open-port --resource-group rg_Challenge_Wise_Clyvo_VET --name vm-wise-clyvo-dev-01 --port 1521</code></pre>
+          <p><strong>Evidencia esperada:</strong> Resource Group, VNet, Subnet, NSG, VM, discos e regras criados na Azure.</p>
+        </article>
+
+        <article class="step-block">
+          <h3>Procedimento de deploy: Docker pull, Git clone e Compose em background</h3>
+          <p>Na VM, baixar as imagens da aplicacao e do banco, baixar a estrutura do repositorio Git e executar o deploy com <code>docker compose up -d</code>.</p>
+          <pre><code class="language-bash">ssh azureuser@IP_PUBLICO_DA_VM
+
+sudo apt-get update
+sudo apt-get install -y ca-certificates curl gnupg git nano
+curl -fsSL https://get.docker.com | sudo sh
+sudo usermod -aG docker "$USER"
+exit
+
+ssh azureuser@IP_PUBLICO_DA_VM
+git clone https://github.com/ProfAntonioFigueiredo/Devops-Linux.git portalweb-deploy
+cd portalweb-deploy
+
+docker pull SEU_USUARIO_DOCKERHUB/portalweb:v1
+docker pull mysql:8.0
+nano docker-compose.yml
+# Ajustar a imagem da aplicacao para SEU_USUARIO_DOCKERHUB/portalweb:v1
+# Ajustar a porta externa para "8080:8080", conforme arquitetura de referencia
+docker compose up -d
+docker compose ps</code></pre>
+          <p><strong>Resultado esperado:</strong> container da aplicacao e container do banco de dados em execucao na VM.</p>
+        </article>
+
+        <article class="step-block">
+          <h3>Acesso externo, CRUD e evidencias sem mock e sem H2</h3>
+          <p>Os alunos devem acessar pelo PC, usando o IP publico da VM. A evidencia deve provar que a aplicacao usa banco real em container, sem mock e sem banco H2 em memoria.</p>
+          <pre><code class="language-bash">curl http://IP_PUBLICO_DA_VM:8080/alunos
+
+curl -X POST http://IP_PUBLICO_DA_VM:8080/alunos \
+  -H "Content-Type: application/json" \
+  -d '{"rmAluno":"RM561148","nomeAluno":"Aluno Aula","turmaAluno":"2TDSPG"}'
+
+docker exec -it bd_portalweb mysql -u fiap -p bdfiap
+SELECT * FROM t_aluno;</code></pre>
+          <p><strong>Fechamento da aula:</strong> mostrar endpoint externo, logs, volume, containers e dados no banco.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="challenge" class="band">
+      <div class="split-title">
+        <div>
+          <h2>5. Challenge - 8 passos com Java Spring Boot + Oracle</h2>
+          <p>Este roteiro deve ser reproduzido pelos grupos com a propria aplicacao. A banca avaliara a capacidade de executar a solucao em nuvem, com aplicacao e banco conteinerizados, CRUD funcional e evidencias completas.</p>
+        </div>
+        <span class="pill">Cenario de avaliacao</span>
+      </div>
+
+      <div class="mini-flow">
+        <div>1. Clone e compila</div>
+        <div>2. Dockerfile e Compose</div>
+        <div>3. Build com TAG</div>
+        <div>4. Docker run</div>
+        <div>5. Docker push</div>
+        <div>6. Azure CLI</div>
+        <div>7. Deploy pull/git</div>
+        <div>8. CRUD externo</div>
+      </div>
+
+      <div class="steps challenge">
+        <article class="step-block">
+          <h3>Clone, adequar e compilar a aplicacao do grupo</h3>
+          <p>O grupo deve clonar o proprio repositorio, adequar a aplicacao ao problema escolhido no Challenge e compilar localmente antes de criar imagens Docker. A aplicacao nao deve ser apenas uma copia do CRUD de aula: ela precisa resolver um problema dentro da jornada CLYVO VET.</p>
+          <ul>
+            <li>Escolher uma dor real da jornada: preventivo, continuidade clinica, emergencia, relacionamento ou inteligencia de dados.</li>
+            <li>Definir entidades e relacionamentos coerentes com o DER.</li>
+            <li>Implementar CRUD completo com <code>GET</code>, <code>POST</code>, <code>PUT</code> e <code>DELETE</code>.</li>
+            <li>Inserir pelo menos dois registros significativos para demonstracao.</li>
+          </ul>
+          <pre><code class="language-bash">git clone https://github.com/GRUPO/REPOSITORIO-CHALLENGE.git
+cd REPOSITORIO-CHALLENGE
+mvn clean package -DskipTests</code></pre>
+        </article>
+
+        <article class="step-block">
+          <h3>Criar Dockerfile, Docker Compose e configurar Oracle</h3>
+          <p>O banco de avaliacao sera Oracle em container. A aplicacao precisa usar driver JDBC Oracle, URL apontando para o nome do servico Docker <code>oracle-db</code>, Dockerfile da aplicacao e Compose com App + Banco.</p>
+          <pre><code class="language-xml">&lt;dependency&gt;
+  &lt;groupId&gt;com.oracle.database.jdbc&lt;/groupId&gt;
+  &lt;artifactId&gt;ojdbc11&lt;/artifactId&gt;
+  &lt;scope&gt;runtime&lt;/scope&gt;
+&lt;/dependency&gt;</code></pre>
+          <pre><code class="language-properties">spring.datasource.url=${SPRING_DATASOURCE_URL:jdbc:oracle:thin:@localhost:1521/XEPDB1}
+spring.datasource.username=${SPRING_DATASOURCE_USERNAME:APP_USER}
+spring.datasource.password=${SPRING_DATASOURCE_PASSWORD:AppPassword123}
+spring.datasource.driver-class-name=oracle.jdbc.OracleDriver
+
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.OracleDialect
+server.port=8080</code></pre>
+          <p><strong>Atencao:</strong> tabelas, constraints e scripts SQL devem estar coerentes com o projeto de Java ou .NET entregue pelo grupo.</p>
+        </article>
+
+        <article class="step-block">
+          <h3>Criar imagem Docker pelo processo de build e versionar TAGs</h3>
+          <p>O Challenge penaliza aplicacao rodando como <code>root</code>. Por isso, o Dockerfile da entrega deve criar usuario dedicado. Em seguida, o grupo deve gerar imagens versionadas, por exemplo <code>challenge-clyvo:v1</code>, <code>v2</code>, <code>v5</code> e <code>v8</code>.</p>
+          <pre><code class="language-dockerfile">FROM maven:3.9.9-eclipse-temurin-17 AS build
+WORKDIR /build
+COPY pom.xml pom.xml
+COPY src src
+RUN mvn clean package -DskipTests
+
+FROM eclipse-temurin:17-jre
+RUN groupadd --system appgroup && useradd --system --gid appgroup appuser
+WORKDIR /app
+COPY --from=build /build/target/*.jar app.jar
+RUN chown -R appuser:appgroup /app
+USER appuser
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "/app/app.jar"]</code></pre>
+          <pre><code class="language-bash">docker build -t challenge-clyvo:v1 .
+docker build -t challenge-clyvo:v2 .
+docker build -t challenge-clyvo:v5 .
+docker image ls challenge-clyvo
+docker run --rm --entrypoint whoami challenge-clyvo:v1</code></pre>
+        </article>
+
+        <article class="step-block">
+          <h3>Criar e executar o container local com Docker run e Compose</h3>
+          <p>O <code>docker run</code> demonstra a execucao da imagem como container. Para a solucao completa, o Compose sobe aplicacao e Oracle na mesma rede. O banco precisa usar volume nomeado para persistencia.</p>
+          <pre><code class="language-yaml">services:
+  oracle-db:
+    image: gvenzl/oracle-xe:21-slim
+    container_name: oracle-db
+    environment:
+      ORACLE_PASSWORD: "OracleRoot123"
+      APP_USER: "APP_USER"
+      APP_USER_PASSWORD: "AppPassword123"
+    volumes:
+      - oracle_data:/opt/oracle/oradata
+      - ./sql:/container-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "healthcheck.sh"]
+      interval: 10s
+      timeout: 5s
+      retries: 15
+      start_period: 40s
+    networks:
+      - challenge_net
+    restart: unless-stopped
+
+  portalweb:
+    build: .
+    image: portalweb-oracle:local
+    container_name: portalweb
+    depends_on:
+      oracle-db:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: "jdbc:oracle:thin:@oracle-db:1521/XEPDB1"
+      SPRING_DATASOURCE_USERNAME: "APP_USER"
+      SPRING_DATASOURCE_PASSWORD: "AppPassword123"
+    networks:
+      - challenge_net
+    restart: on-failure
+
+networks:
+  challenge_net:
+    driver: bridge
+
+volumes:
+  oracle_data:</code></pre>
+          <pre><code class="language-bash">docker run --name WISE-CLYVO -p 8080:8080 -d challenge-clyvo:v1
+docker ps
+docker stop WISE-CLYVO
+docker rm WISE-CLYVO
+
+docker compose config
+docker compose up --build -d
+docker compose ps
+docker volume ls</code></pre>
+        </article>
+
+        <article class="step-block">
+          <h3>Docker push para levar as imagens ao repositorio Docker</h3>
+          <p>Somente a imagem customizada da aplicacao precisa ser publicada. O Oracle sera baixado pela VM diretamente do Docker Hub oficial com a imagem <code>gvenzl/oracle-xe:21-slim</code>.</p>
+          <pre><code class="language-bash">export DOCKERHUB_USER="usuario_do_grupo"
+export APP_IMAGE="$DOCKERHUB_USER/challenge-clyvo-vet"
+
+docker login
+docker tag challenge-clyvo:v1 "$APP_IMAGE:v1"
+docker tag challenge-clyvo:v2 "$APP_IMAGE:v2"
+docker tag challenge-clyvo:v5 "$APP_IMAGE:v5"
+docker tag challenge-clyvo:v1 "$APP_IMAGE:latest"
+
+docker push "$APP_IMAGE:v1"
+docker push "$APP_IMAGE:v2"
+docker push "$APP_IMAGE:v5"
+docker push "$APP_IMAGE:latest"</code></pre>
+          <p><strong>Padrao de tag:</strong> usar tag versionada evita que a banca execute uma imagem diferente da imagem demonstrada.</p>
+        </article>
+
+        <article class="step-block">
+          <h3>Criar a infraestrutura de producao utilizando Azure CLI</h3>
+          <p>O script deve criar Resource Group, VNet, Subnet, NSG, VM <code>Standard_B4ls_v2</code> com 8GB de memoria, discos e regras de inbound/outbound. Ele e um dos entregaveis avaliados.</p>
+          <pre><code class="language-bash">#!/usr/bin/env bash
+set -e
+
+RG="rg-challenge-clyvo-vet"
+LOCATION="brazilsouth"
+VNET="vnet_wise_dev"
+SUBNET="sub_net_dev"
+NSG="nsg_portalweb_dev"
+VM="vm-wise-clyvo-dev-01"
+ADMIN="azureuser"
+
+az group create --name "$RG" --location "$LOCATION"
+
+az network vnet create \
+  --resource-group "$RG" \
+  --location "$LOCATION" \
+  --name "$VNET" \
+  --address-prefixes 10.10.0.0/16 \
+  --subnet-name "$SUBNET" \
+  --subnet-prefixes 10.10.1.0/24
+
+az network nsg create \
+  --resource-group "$RG" \
+  --location "$LOCATION" \
+  --name "$NSG"
+
+az vm create \
+  --resource-group "$RG" \
+  --name "$VM" \
+  --image Ubuntu2204 \
+  --size Standard_B4ls_v2 \
+  --admin-username "$ADMIN" \
+  --generate-ssh-keys \
+  --vnet-name "$VNET" \
+  --subnet "$SUBNET" \
+  --nsg "$NSG"
+
+az vm open-port --resource-group "$RG" --name "$VM" --port 22
+az vm open-port --resource-group "$RG" --name "$VM" --port 8080
+az vm open-port --resource-group "$RG" --name "$VM" --port 1521
+
+az vm run-command invoke \
+  --resource-group "$RG" \
+  --name "$VM" \
+  --command-id RunShellScript \
+  --scripts "sudo apt-get update && sudo apt-get install -y git nano curl ca-certificates && curl -fsSL https://get.docker.com | sudo sh && sudo usermod -aG docker $ADMIN"
+
+az vm show \
+  --resource-group "$RG" \
+  --name "$VM" \
+  --show-details \
+  --query publicIps \
+  --output tsv</code></pre>
+          <p><strong>Para nota maxima:</strong> documentar Resource Group, VM, portas liberadas, Docker instalado e ferramentas instaladas.</p>
+        </article>
+
+        <article class="step-block">
+          <h3>Procedimento de deploy: Docker pull, Git clone e Compose em background</h3>
+          <p>Na VM, baixar a imagem da aplicacao, baixar a imagem do banco Oracle, baixar a estrutura da aplicacao do repositorio Git e executar <code>docker compose up -d</code>. A aplicacao deve estar em background e o Oracle deve manter dados no volume nomeado.</p>
+          <pre><code class="language-bash">ssh azureuser@IP_PUBLICO_DA_VM
+git clone https://github.com/GRUPO/REPOSITORIO-CHALLENGE.git challenge-clyvo
+cd challenge-clyvo
+
+docker pull USUARIO_DOCKERHUB/challenge-clyvo-vet:v1
+docker pull gvenzl/oracle-xe:21-slim
+nano docker-compose.yml
+# Conferir imagem da aplicacao, imagem Oracle, porta "8080:8080" e volume oracle_data
+
+docker compose pull
+docker compose up -d
+docker compose ps
+docker logs oracle-db --tail 100
+docker logs portalweb --tail 100
+docker exec portalweb whoami
+docker volume ls</code></pre>
+          <p><strong>Resultado esperado:</strong> <code>portalweb</code> e <code>oracle-db</code> em execucao, app sem usuario <code>root</code> e volume <code>oracle_data</code> criado.</p>
+        </article>
+
+        <article class="step-block">
+          <h3>Acesso externo, CRUD e evidencias sem mock e sem H2</h3>
+          <p>A demonstracao deve provar que a aplicacao esta em nuvem, que o CRUD funciona externamente, que os dados chegam ao Oracle e que nao ha mock nem banco H2 em memoria.</p>
+          <pre><code class="language-bash">curl http://IP_PUBLICO_DA_VM:8080/api/cadastro
+
+curl -X POST http://IP_PUBLICO_DA_VM:8080/api/cadastro \
+  -H "Content-Type: application/json" \
+  -d '{"nome":"Tutor Teste","email":"tutor@fiap.com.br","pet":"Clyvo"}'
+
+curl -X PUT http://IP_PUBLICO_DA_VM:8080/api/cadastro/1 \
+  -H "Content-Type: application/json" \
+  -d '{"nome":"Tutor Atualizado","email":"novo@fiap.com.br","pet":"Clyvo"}'
+
+curl -X DELETE http://IP_PUBLICO_DA_VM:8080/api/cadastro/1
+
+docker exec -it oracle-db sqlplus APP_USER/AppPassword123@XEPDB1
+SELECT table_name FROM user_tables;
+SELECT * FROM TBL_CONTATOS;
+
+docker exec portalweb printenv | grep SPRING_DATASOURCE
+docker exec portalweb sh -c 'find /app -maxdepth 2 -type f | sort'</code></pre>
+          <p><strong>Entrega final:</strong> video com voz, minimo 720p, repositorio acessivel, PDF com folha de rosto, arquitetura, links, prints e evidencia de remocao da VM.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="criterios" class="band">
+      <h2>6. Criterios de avaliacao e penalidades</h2>
+      <h3>DevOps Tools & Cloud Computing</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>O que deve ser demonstrado</th>
+            <th>Pontuacao</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Script Azure CLI</td>
+            <td>Provisionar VM Linux, abrir portas, instalar Docker e ferramentas necessarias.</td>
+            <td class="score">ate 20 pontos</td>
+          </tr>
+          <tr>
+            <td>Execucao em nuvem</td>
+            <td>App e Banco em Docker, execucao em background, usuario sem privilegio administrativo e volume nomeado.</td>
+            <td class="score">ate 60 pontos</td>
+          </tr>
+          <tr>
+            <td>Arquitetura macro</td>
+            <td>Desenho com usuario, API, banco, VM, containers, rede, portas, volumes, Docker Hub e fluxo de acesso.</td>
+            <td class="score">ate 20 pontos</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Requisitos tecnicos de desenvolvimento</h3>
+      <ul>
+        <li>CRUD completo com <code>GET</code>, <code>POST</code>, <code>PUT</code> e <code>DELETE</code>.</li>
+        <li>Persistencia em banco Oracle conteinerizado neste roteiro. Para a demonstracao do professor e correcao desta arquitetura, nao usar mock nem H2 em memoria.</li>
+        <li>Entidades relacionadas e mapeadas com JPA.</li>
+        <li>DTOs, Bean Validation, paginacao, ordenacao, busca por parametros, cache, tratamento de erros e Swagger.</li>
+        <li>Collection Postman ou Insomnia exportada para o professor validar.</li>
+        <li>DER e modelo fisico coerentes com a aplicacao.</li>
+      </ul>
+
+      <h3>Penalidades criticas</h3>
+      <ul>
+        <li>Entrega apenas em <code>localhost</code>: correcao pratica inviabilizada.</li>
+        <li>Projeto nao executando em background: perda de pontuacao.</li>
+        <li>Aplicacao rodando como <code>root</code>: perda de pontuacao.</li>
+        <li>Banco sem volume nomeado: perda relevante de pontuacao.</li>
+        <li>Nao mostrar cada operacao no banco: perda relevante de pontuacao.</li>
+        <li>GitHub sem How To, descricao, beneficios, Dockerfile/Compose ou script Azure CLI: perda de pontuacao.</li>
+        <li>Professor sem acesso ao GitHub ou ao video: correcao pode ser inviabilizada.</li>
+      </ul>
+    </section>
+
+    <section id="evidencias" class="band">
+      <h2>7. Evidencias obrigatorias para alunos e professor</h2>
+      <div class="grid two">
+        <div class="card">
+          <strong>Durante a aula</strong>
+          <ul>
+            <li>Print ou demonstracao do Docker Desktop.</li>
+            <li>Imagem local criada com <code>docker image ls</code>.</li>
+            <li>Containers em execucao com <code>docker compose ps</code>.</li>
+            <li>CRUD acessado no navegador ou por <code>curl</code>.</li>
+            <li>Imagem publicada no Docker Hub.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <strong>Na entrega do Challenge</strong>
+          <ul>
+            <li>Script Azure CLI executado.</li>
+            <li>IP publico da VM.</li>
+            <li>Docker instalado na VM.</li>
+            <li>App e Oracle em background.</li>
+            <li>CRUD externo e dados no Oracle.</li>
+            <li>Volume nomeado e usuario nao root.</li>
+            <li>Remocao dos recursos Azure.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Estrutura recomendada do PDF final</h3>
+      <ol>
+        <li>Folha de rosto com turma, grupo, nomes completos e RMs.</li>
+        <li>Indice.</li>
+        <li>Descricao do problema da jornada CLYVO VET escolhido pelo squad.</li>
+        <li>Beneficios de negocio e valor para a solucao.</li>
+        <li>Arquitetura macro com legenda e fluxo.</li>
+        <li>DER, modelo fisico e explicacao dos relacionamentos.</li>
+        <li>Link do GitHub.</li>
+        <li>Link do video.</li>
+        <li>Prints de execucao, containers, Docker Hub, banco e remocao da VM.</li>
+      </ol>
+    </section>
+
+    <section id="troubleshooting" class="band">
+      <h2>8. Troubleshooting orientado</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Problema</th>
+            <th>Verificacao</th>
+            <th>Acao recomendada</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Aplicacao nao abre pelo IP publico</td>
+            <td><code>docker compose ps</code>, NSG, porta <code>8080</code></td>
+            <td>Confirmar se a porta esta aberta na Azure e se o Compose mapeia <code>8080:8080</code>.</td>
+          </tr>
+          <tr>
+            <td>Banco Oracle demora para iniciar</td>
+            <td><code>docker logs oracle-db -f</code></td>
+            <td>Aguardar a primeira inicializacao e manter healthcheck com tempo suficiente.</td>
+          </tr>
+          <tr>
+            <td>App inicia antes do banco</td>
+            <td>Logs da aplicacao e healthcheck</td>
+            <td>Usar <code>depends_on</code> com <code>condition: service_healthy</code>.</td>
+          </tr>
+          <tr>
+            <td>Dados desaparecem</td>
+            <td><code>docker volume ls</code></td>
+            <td>Usar volume nomeado e nao executar <code>docker compose down -v</code> antes da avaliacao.</td>
+          </tr>
+          <tr>
+            <td>Imagem nao encontrada na VM</td>
+            <td><code>docker pull usuario/imagem:tag</code></td>
+            <td>Verificar usuario Docker Hub, nome do repositorio, tag e visibilidade da imagem.</td>
+          </tr>
+          <tr>
+            <td>Perda por usuario root</td>
+            <td><code>docker exec portalweb whoami</code></td>
+            <td>Criar usuario no Dockerfile e usar <code>USER appuser</code>.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="ok">
+        <strong>Checklist final:</strong> arquitetura compreendida, aula MySQL reproduzida, Challenge Oracle executado, CRUD validado, Docker Hub publicado, VM criada por Azure CLI, banco persistente, app sem root, video gravado, PDF organizado e recursos Azure removidos.
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <p>Material academico consolidado para FIAP DevOps Tools & Cloud Computing, usando os PPTs de Dockerfile, Docker Compose e Challenge 2026 como referencia tecnica.</p>
+  </footer>
+</body>
+</html>

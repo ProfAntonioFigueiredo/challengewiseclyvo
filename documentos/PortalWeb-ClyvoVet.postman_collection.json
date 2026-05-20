@@ -1,0 +1,104 @@
+{
+  "info": {
+    "name": "PortalWeb Clyvo Vet",
+    "description": "Colecao para testar CRUD de alunos e API Clyvo Vet com tutores, pets e planos de cuidado.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    }
+  ],
+  "item": [
+    {
+      "name": "Alunos - criar",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/alunos",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"rmAluno\": \"RM9001\",\n  \"nmAluno\": \"Aluno Teste\",\n  \"dtNascimento\": \"2004-05-10\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Alunos - listar paginado",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/alunos?busca=RM&page=0&size=10&sort=nmAluno,asc"
+      }
+    },
+    {
+      "name": "Tutores - criar",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/v1/tutores",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nome\": \"Mariana Campos\",\n  \"email\": \"mariana.campos@example.com\",\n  \"telefone\": \"+55 11 99999-0101\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Pets - criar",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/v1/pets",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nome\": \"Nina\",\n  \"especie\": \"Canino\",\n  \"raca\": \"Golden Retriever\",\n  \"dataNascimento\": \"2020-06-10\",\n  \"pesoKg\": 26.5,\n  \"tutorId\": 1\n}"
+        }
+      }
+    },
+    {
+      "name": "Planos de cuidado - criar",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/v1/planos-cuidado",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"petId\": 1,\n  \"titulo\": \"Reforco anual de vacina V10\",\n  \"categoria\": \"VACINA\",\n  \"status\": \"AGENDADO\",\n  \"dataPrevista\": \"2026-06-15\",\n  \"observacao\": \"Manter carteira de vacinacao atualizada.\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Planos de cuidado - buscar por status",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/v1/planos-cuidado?status=AGENDADO&page=0&size=10&sort=dataPrevista,asc"
+      }
+    },
+    {
+      "name": "Swagger UI",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/swagger-ui/index.html"
+      }
+    }
+  ]
+}

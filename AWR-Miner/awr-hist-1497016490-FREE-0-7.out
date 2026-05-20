@@ -1,0 +1,1484 @@
+------------------------- BEGIN-OS-INFORMATION -----------------------------------------
+~~BEGIN-OS-INFORMATION~~
+STAT_NAME                                                    STAT_VALUE
+------------------------------------------------------------ ------------------------------------------------------------
+NUM_CPUS                                                     10
+NUM_CPU_CORES                                                10
+NUM_CPU_SOCKETS                                              1
+PHYSICAL_MEMORY_GB                                           7.65
+!PLATFORM_NAME                                               Linux OS (AARCH64)
+PLATFORM_NAME                                                Linux_OS_(AARCH64)
+DB_NAME                                                      FREE
+DBID                                                         1497016490
+VERSION                                                      23.26.1.0.0
+INSTANCES                                                    1
+HOSTS                                                        79c7cdcf4903,832192ef031c,e37ffd1cf5ed
+MODULE                                                       sqlplus
+AWR_MINER_VER                                                26.3.0
+~~END-OS-INFORMATION~~
+Elapsed: 00:00:00.03
+
+------------------------- BEGIN-OS-INFORMATION2 -----------------------------------------
+~~BEGIN-OS-INFORMATION2~~
+STAT_NAME                                                    INSTANCE                                                     STAT_VALUE
+------------------------------------------------------------ ------------------------------------------------------------ ------------------------------------------------------------
+DB_ARCHITECTURE                                              0                                                            CDB
+PDB_COUNT                                                    0                                                            1
+NUM_CPUS                                                     1                                                            10
+NUM_CPU_CORES                                                1                                                            10
+NUM_CPU_SOCKETS                                              1                                                            1
+PHYSICAL_MEMORY_GB                                           1                                                            7.65
+!PLATFORM_NAME                                               0                                                            Linux OS (AARCH64)
+PLATFORM_NAME                                                0                                                            Linux_OS_(AARCH64)
+DB_NAME                                                      0                                                            FREE
+DBID                                                         0                                                            1497016490
+INSTANCE_NUMBER                                              0                                                            1
+VERSION                                                      1                                                            23.26.1.0.0
+HOSTS                                                        1                                                            79c7cdcf4903
+MODULE                                                       0                                                            sqlplus
+AWR_MINER_VER                                                0                                                            26.3.0
+~~END-OS-INFORMATION2~~
+Elapsed: 00:00:00.02
+------------------------- BEGIN-PATCH-HISTORY -------------------------------------------
+
+~~BEGIN-PATCH-HISTORY~~
+
+      RNUM ACTION_TIME              ACTION                         NAMESPACE                      VERSION                                ID COMMENTS                                                                         BUNDLE_SERIES
+---------- ------------------------ ------------------------------ ------------------------------ ------------------------------ ---------- -------------------------------------------------------------------------------- ------------------------------
+         1                          BOOTSTRAP                      DATAPATCH                      23                                        RDBMS_23.26.1.0.0DBRU_LINUX.ARM64_260116.3
+         2                          BOOTSTRAP                      DATAPATCH_DBMSSQLPATCH         23                                        922a4c202e49dbaf5baecbe11c8372f1|42ECEA23B571E15BD852875F674AA82A
+         3                          BOOTSTRAP                      DATAPATCH_PRVTSQLPATCH         23                                        abc11351967a0830b78c2a3ffc32a256|1D4E7F5CAB7BBEB1D9D78409E05253D7
+         4                          BOOTSTRAP                      DATAPATCH_DBMSQOPI             23                                        cc33d7b58f7f4efa82f56bcd4e4cc655|CFE1C0F9D24EFBEAA05917AD4A3957B9
+         5                          BOOTSTRAP                      DATAPATCH_PRVTQOPI             23                                        e0b85a0176a706b50918f5ba985f7bde|40E31CE3CE567D947FFFBE286C3BA439
+
+~~END-PATCH-HISTORY~~
+Elapsed: 00:00:00.00
+------------------------- BEGIN-MODULE --------------------------------------------------
+
+~~BEGIN-MODULE~~
+
+MODULE
+--------------------------------------------------
+sqlplus
+
+~~END-MODULE~~
+Elapsed: 00:00:00.01
+------------------------- BEGIN-SNAP-HISTORY --------------------------------------------
+
+~~BEGIN-SNAP-HISTORY~~
+
+  SNAP_MIN   SNAP_MAX        CNT INST_COUNT ERROR_COUNT
+---------- ---------- ---------- ---------- -----------
+         1          8          8          1           0
+
+~~END-SNAP-HISTORY~~
+Elapsed: 00:00:00.00
+------------------------- BEGIN-MEMORY --------------------------------------------------
+
+~~BEGIN-MEMORY~~
+
+   SNAP_ID INSTANCE_NUMBER        SGA        PGA      TOTAL
+---------- --------------- ---------- ---------- ----------
+         1               1        1.5         .4        1.9
+         2               1        1.5         .4        1.9
+         3               1        1.5         .4        1.9
+         4               1        1.5         .4        1.9
+         5               1        1.5         .4        1.9
+         6               1        1.5         .4        1.9
+         7               1        1.5         .3        1.8
+
+~~END-MEMORY~~
+Elapsed: 00:00:00.02
+------------------------- BEGIN-MEMORY-SGA-ADVICE ---------------------------------------
+
+~~BEGIN-MEMORY-SGA-ADVICE~~
+
+   SNAP_ID INSTANCE_NUMBER SGA_TARGET_GB SIZE_FACTOR ESTD_PHYSICAL_READS LEAD_READ_DIFF
+---------- --------------- ------------- ----------- ------------------- --------------
+         1               1            .8          .5               19020              0
+         1               1           1.5           1               19020              0
+         1               1             3           2               19020              0
+         2               1            .8          .5               17106              0
+         2               1           1.5           1               17106              0
+         2               1             3           2               17106              0
+         3               1            .8          .5               23075            285
+         3               1           1.5           1               22790              0
+         3               1             3           2               22790              0
+         4               1            .8          .5               23884            432
+         4               1           1.5           1               23452              0
+         4               1             3           2               23452              0
+         5               1            .8          .5               24080            528
+         5               1           1.5           1               23552              0
+         5               1             3           2               23552              0
+         6               1            .8          .5               24316            565
+         6               1           1.5           1               23751              0
+         6               1             3           2               23751              0
+
+~~END-MEMORY-SGA-ADVICE~~
+Elapsed: 00:00:00.01
+------------------------- BEGIN-MEMORY-PGA-ADVICE ---------------------------------------
+
+~~BEGIN-MEMORY-PGA-ADVICE~~
+
+   SNAP_ID INSTANCE_NUMBER PGA_TARGET_GB SIZE_FACTOR ESTD_EXTRA_MB_RW LEAD_SIZE_DIFF_MB ESTD_PGA_CACHE_HIT_PERCENTAGE
+---------- --------------- ------------- ----------- ---------------- ----------------- -----------------------------
+         1               1            .1        .125                0                 0                           100
+         1               1            .5           1                0                 0                           100
+         1               1             4           8                0                 0                           100
+         2               1            .1        .125                0                 0                           100
+         2               1            .5           1                0                 0                           100
+         2               1             4           8                0                 0                           100
+         3               1            .1        .125                0                 0                           100
+         3               1            .5           1                0                 0                           100
+         3               1             4           8                0                 0                           100
+         4               1            .1        .125                0                 0                           100
+         4               1            .5           1                0                 0                           100
+         4               1             4           8                0                 0                           100
+         5               1            .1        .125                0                 0                           100
+         5               1            .5           1                0                 0                           100
+         5               1             4           8                0                 0                           100
+         6               1            .1        .125                0                 0                           100
+         6               1            .5           1                0                 0                           100
+         6               1             4           8                0                 0                           100
+
+~~END-MEMORY-PGA-ADVICE~~
+Elapsed: 00:00:00.01
+------------------------- BEGIN-SIZE-ON-DISK --------------------------------------------
+Elapsed: 00:00:00.00
+
+
+
+Elapsed: 00:00:00.00
+
+~~BEGIN-SIZE-ON-DISK~~
+
+   SNAP_ID    SIZE_GB USED_SIZE_GB
+---------- ---------- ------------
+         7        1.4          .99
+
+~~END-SIZE-ON-DISK~~
+Elapsed: 00:00:00.01
+------------------------- BEGIN-OSSTAT --------------------------------------------------
+
+~~BEGIN-OSSTAT~~
+
+   SNAP_ID INSTANCE_NUMBER       load       cpus      cores    sockets     mem_gb mem_free_gb       idle       busy       user        sys     iowait       nice   cpu_wait rsrc_mgr_wait      vm_in     vm_out  cpu_count
+---------- --------------- ---------- ---------- ---------- ---------- ---------- ----------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ------------- ---------- ---------- ----------
+         1               1        3.3         10         10          1       7837         169     589750       9698       6078       1869         83          0                        9          0          0          2
+         2               1        3.8         10         10          1       7837         121     589302      10031       5746       2536        296          0                        5          0          0          2
+         3               1        3.1         10         10          1       7837         101    2181729      27830      15810       6579        472          0                       27          0          0          2
+         4               1        3.4         10         10          1       7837         107    2232260      28455      16163       6712        480          0                       27          0          0          2
+         5               1        4.2         10         10          1       7837         123    2774499      34219      19347       8011        533          0                       30          0          0          2
+         6               1        4.1         10         10          1       7837         136    2786278      34497      19554       8056        535          0                       30          0          0          2
+         7               1        3.5         10         10          1       7837         224      29548       1349        737        532         16          0                        6          0          0          2
+
+~~END-OSSTAT~~
+Elapsed: 00:00:00.01
+------------------------- BEGIN-MAIN-METRICS --------------------------------------------
+
+~~BEGIN-MAIN-METRICS~~
+
+      snap      dur_m end                  inst     os_cpu os_cpu_max  os_cpu_sd db_wait_ratio db_cpu_ratio  cpu_per_s cpu_per_s_sd h_cpu_per_s h_cpu_per_s_sd        aas     aas_sd    aas_max    db_time db_time_sd sql_res_t_cs bkgd_t_per_s   logons_s logons_total     exec_s   hard_p_s  l_reads_s  commits_s  read_mb_s read_mb_s_max  read_iops read_iops_max   read_bks read_bks_direct write_mb_s write_mb_s_max write_iops write_iops_max  write_bks write_bks_direct  redo_mb_s db_block_gets_s db_block_changes_s gc_cr_rec_s gc_cu_rec_s gc_cr_get_cs gc_cu_get_cs gc_bk_corrupted gc_bk_lost    px_sess    se_sess s_blk_r_lat cell_io_int_mb cell_io_int_mb_max
+---------- ---------- -------------- ---------- ---------- ---------- ---------- ------------- ------------ ---------- ------------ ----------- -------------- ---------- ---------- ---------- ---------- ---------- ------------ ------------ ---------- ------------ ---------- ---------- ---------- ---------- ---------- ------------- ---------- ------------- ---------- --------------- ---------- -------------- ---------- -------------- ---------- ---------------- ---------- --------------- ------------------ ----------- ----------- ------------ ------------ --------------- ---------- ---------- ---------- ----------- -------------- ------------------
+         1          9 26/05/19 22:15          1        1.6        2.9         .6             0        122.8       .032         .033        .158           .063          0          0         .1        2.9        3.3            0            0         .2         92.3      116.9        2.5      526.1          0         .1            .3       11.6          39.8       15.6               0          0             .2        2.5            7.6        1.8               .6          0            59.2               57.8           0           0            0            0          3566.9          0          0          1           0           10.1               22.5
+         2          9 26/05/19 23:00          1        1.6        3.2         .6             0        125.4       .023         .008        .157           .064          0          0          0        1.9         .9            0            0         .2         92.9       31.1        1.7      183.5          0         .1            .5         10          40.3       11.7               0          0             .2        1.5            5.5        1.1               .5          0            23.6               19.9           0           0            0            0          1430.8          0          0          1           0              9               32.4
+         3         27 26/05/19 23:27          1        1.1        1.7         .2             0        118.1       .018          .01        .111           .024          0          0         .1        1.6          1            0            0         .1         89.3       33.5         .9      233.5          0          0            .2        3.3          27.7        3.5               0          0             .2        2.4           10.3          2               .3          0            29.4               27.3           0           0            0            0          1760.9          0          0          1           0            4.3               21.8
+         4          1 26/05/19 23:28          1        1.2        1.2          0             0        103.7       .051            0        .122              0          0          0          0        4.9          0            0            0         .1           91      167.7        8.1     1052.4         .2         .1            .1       12.6          12.6         11               0         .1             .1        2.4            2.4        1.6              1.4         .1           242.6              233.8           0           0            0            0           14579          0          0          1           0           12.8               12.8
+         5          9 26/05/19 23:37          1          1        1.4         .2             0        117.6       .016         .004        .104           .017          0          0          0        1.4         .4            0            0         .1           90       18.8         .5       80.5          0          0             0         .7           2.3         .2               0          0             .2        2.6            5.8        3.3               .1          0            28.2               30.1           0           0            0            0          1690.1          0          0          1           0            3.4               11.3
+         6          1 26/05/19 23:38          1        1.3        1.3          0             0        106.1       .039            0        .129              0          0          0          0        3.7          0            0            0         .1           90      124.8        8.3      808.6         .2         .1            .1          5             5        3.3               0         .1             .1        2.1            2.1        1.4                1         .1           210.3              210.9           0           0            0            0           12629          0          0          1           0            8.4                8.4
+
+~~END-MAIN-METRICS~~
+Elapsed: 00:00:00.01
+------------------------- BEGIN-SQLNET-METRICS ------------------------------------------
+
+~~BEGIN-SQLNET-METRICS~~
+
+      snap       inst rqsts_to_from_client sqlnet_to_from_client sqlnet_bytes_received sqlnet_bytes_sent sqlnet_bytes_vector_from sqlnet_bytes_vector_to
+---------- ---------- -------------------- --------------------- --------------------- ----------------- ------------------------ ----------------------
+         1          1                  556                   576                174188            288036                        0                      0
+         2          1                  513                   533                127194            269799                        0                      0
+         3          1                 1797                  1818                485447           1012142                        0                      0
+         4          1                 1834                  1854                492967           1029638                        0                      0
+         5          1                 2461                  2482                769471           1255840                        0                      0
+         6          1                 2471                  2491                771949           1259414                        0                      0
+         7          1                   38                    39                  9858             20587                        0                      0
+
+~~END-SQLNET-METRICS~~
+Elapsed: 00:00:00.02
+------------------------- BEGIN-DATABASE-PARAMETERS ------------------------------------
+
+~~BEGIN-DATABASE-PARAMETERS~~
+
+INSTANCE_NUMBER PARAMETER_NAME                                                   VALUE
+--------------- ---------------------------------------------------------------- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+              1 DBFIPS_140                                                       FALSE
+              1 _dmm_blas_library                                                libora_netlib.so
+              1 _enable_memory_protection_keys                                   FALSE
+              1 _instance_recovery_bloom_filter_size                             1048576
+              1 adg_account_info_tracking                                        LOCAL
+              1 adg_redirect_dml                                                 FALSE
+              1 alert_log_max_size                                               1048576000
+              1 allow_global_dblinks                                             FALSE
+              1 allow_group_access_to_sga                                        FALSE
+              1 allow_legacy_reco_protocol                                       TRUE
+              1 allow_rowid_column_type                                          FALSE
+              1 allow_weak_crypto                                                TRUE
+              1 approx_for_aggregation                                           FALSE
+              1 approx_for_count_distinct                                        FALSE
+              1 approx_for_percentile                                            NONE
+              1 aq_tm_processes                                                  1
+              1 archive_lag_target                                               0
+              1 asm_diskstring
+              1 asm_preferred_read_failure_groups
+              1 audit_file_dest                                                  /opt/oracle/product/26ai/dbhomeFree/rdbms/audit
+              1 audit_sys_operations                                             FALSE
+              1 audit_syslog_level
+              1 audit_trail                                                      NONE
+              1 auto_start_pdb_services                                          FALSE
+              1 autotask_max_active_pdbs                                         2
+              1 awr_pdb_autoflush_enabled                                        TRUE
+              1 awr_pdb_autoflush_enabled                                        TRUE
+              1 awr_pdb_autoflush_enabled                                        TRUE
+              1 awr_pdb_max_parallel_slaves                                      10
+              1 awr_snapshot_time_offset                                         0
+              1 background_core_dump                                             partial
+              1 background_dump_dest                                             /opt/oracle/product/26ai/dbhomeFree/rdbms/log
+              1 backup_tape_io_slaves                                            FALSE
+              1 bitmap_merge_area_size                                           1048576
+              1 blank_trimming                                                   FALSE
+              1 blockchain_table_max_no_drop
+              1 blockchain_table_retention_threshold                             16
+              1 buffer_pool_keep
+              1 buffer_pool_recycle
+              1 calendar_fiscal_year_start
+              1 cdb_cluster                                                      FALSE
+              1 cdb_cluster_name
+              1 cell_offload_compaction                                          ADAPTIVE
+              1 cell_offload_decryption                                          TRUE
+              1 cell_offload_parameters
+              1 cell_offload_plan_display                                        AUTO
+              1 cell_offload_processing                                          TRUE
+              1 cell_offloadgroup_name
+              1 circuits
+              1 client_prefetch_rows                                             0
+              1 client_result_cache_lag                                          3000
+              1 client_result_cache_size                                         0
+              1 client_statistics_level                                          TYPICAL
+              1 clonedb                                                          FALSE
+              1 clonedb_dir
+              1 cloud_table_commit_threshold                                     0
+              1 cluster_database                                                 FALSE
+              1 commit_logging
+              1 commit_point_strength                                            1
+              1 commit_wait
+              1 commit_write
+              1 common_user_prefix
+              1 common_user_prefix
+              1 common_user_prefix
+              1 compatible                                                       23.6.0
+              1 connection_brokers                                               ((TYPE=DEDICATED)(BROKERS=2)(CONNECTIONS=2000)), ((TYPE=EMON)(BROKERS=1))
+              1 container_data                                                   ALL
+              1 containers_parallel_degree                                       65535
+              1 control_file_record_keep_time                                    7
+              1 control_files                                                    /opt/oracle/oradata/FREE/control01.ctl, /opt/oracle/oradata/FREE/control02.ctl
+              1 control_management_pack_access                                   DIAGNOSTIC+TUNING
+              1 core_dump_dest                                                   /opt/oracle/diag/rdbms/free/FREE/cdump
+              1 cpu_count                                                        2
+              1 cpu_min_count                                                    2
+              1 cpu_min_count                                                    2
+              1 cpu_min_count                                                    2
+              1 create_bitmap_area_size                                          8388608
+              1 create_stored_outlines
+              1 cursor_bind_capture_destination                                  memory+disk
+              1 cursor_invalidation                                              IMMEDIATE
+              1 cursor_sharing                                                   EXACT
+              1 cursor_space_for_time                                            FALSE
+              1 data_guard_max_io_time                                           240
+              1 data_guard_max_longio_time                                       240
+              1 data_guard_sync_latency                                          0
+              1 data_transfer_cache_size                                         0
+              1 db_16k_cache_size                                                0
+              1 db_2k_cache_size                                                 0
+              1 db_32k_cache_size                                                0
+              1 db_4k_cache_size                                                 0
+              1 db_8k_cache_size                                                 0
+              1 db_big_table_cache_percent_target                                0
+              1 db_block_buffers                                                 0
+              1 db_block_checking                                                FALSE
+              1 db_block_checksum                                                TYPICAL
+              1 db_block_size                                                    8192
+              1 db_cache_advice                                                  ON
+              1 db_cache_size                                                    0
+              1 db_cache_size                                                    0
+              1 db_cache_size                                                    0
+              1 db_create_file_dest
+              1 db_create_online_log_dest_1
+              1 db_create_online_log_dest_2
+              1 db_create_online_log_dest_3
+              1 db_create_online_log_dest_4
+              1 db_create_online_log_dest_5
+              1 db_file_multiblock_read_count                                    128
+              1 db_file_name_convert
+              1 db_files                                                         200
+              1 db_flash_cache_file
+              1 db_flash_cache_size                                              0
+              1 db_flashback_log_dest
+              1 db_flashback_log_dest_size                                       0
+              1 db_flashback_retention_target                                    1440
+              1 db_index_compression_inheritance                                 NONE
+              1 db_keep_cache_size                                               0
+              1 db_lost_write_protect                                            AUTO
+              1 db_name                                                          FREE
+              1 db_performance_profile
+              1 db_performance_profile
+              1 db_performance_profile
+              1 db_recovery_auto_rekey                                           ON
+              1 db_recovery_file_dest
+              1 db_recovery_file_dest_size                                       0
+              1 db_recycle_cache_size                                            0
+              1 db_securefile                                                    PREFERRED
+              1 db_ultra_safe                                                    OFF
+              1 db_unique_name                                                   FREE
+              1 db_unrecoverable_scn_tracking                                    TRUE
+              1 db_writer_processes                                              1
+              1 dbnest_enable                                                    NONE
+              1 dbnest_pdb_fs_conf
+              1 dbwr_io_slaves                                                   0
+              1 ddl_lock_timeout                                                 0
+              1 debug_log_max_size                                               1048576000
+              1 default_credential
+              1 default_sharing                                                  metadata
+              1 deferred_segment_creation                                        TRUE
+              1 dg_broker_config_file1                                           /opt/oracle/product/26ai/dbhomeFree/dbs/dr1FREE.dat
+              1 dg_broker_config_file2                                           /opt/oracle/product/26ai/dbhomeFree/dbs/dr2FREE.dat
+              1 dg_broker_start                                                  FALSE
+              1 diagnostic_dest                                                  /opt/oracle
+              1 diagnostics_control                                              IGNORE
+              1 directory_prefixes_allowed
+              1 disable_pdb_feature                                              0
+              1 disk_asynch_io                                                   TRUE
+              1 dispatchers                                                      (PROTOCOL=TCP) (SERVICE=FREEXDB)
+              1 distributed_lock_timeout                                         60
+              1 dml_locks                                                        1416
+              1 dnfs_batch_size                                                  4096
+              1 drcp_connection_limit                                            0
+              1 drcp_dedicated_opt                                               NO
+              1 dst_upgrade_insert_conv                                          TRUE
+              1 enable_automatic_maintenance_pdb                                 TRUE
+              1 enable_ddl_logging                                               FALSE
+              1 enable_dnfs_dispatcher                                           FALSE
+              1 enable_goldengate_replication                                    FALSE
+              1 enable_imc_with_mira                                             FALSE
+              1 enable_per_pdb_drcp                                              FALSE
+              1 enable_pluggable_database                                        TRUE
+              1 enabled_PDBs_on_standby                                          *
+              1 encrypt_new_tablespaces                                          CLOUD_ONLY
+              1 error_message_details                                            ON
+              1 event
+              1 external_keystore_credential_location
+              1 fal_client
+              1 fal_server
+              1 fast_start_io_target                                             0
+              1 fast_start_mttr_target                                           0
+              1 fast_start_parallel_rollback                                     FALSE
+              1 fast_start_parallel_rollback                                     FALSE
+              1 fast_start_parallel_rollback                                     FALSE
+              1 file_mapping                                                     FALSE
+              1 fileio_network_adapters
+              1 filesystemio_options                                             none
+              1 fixed_date
+              1 forward_listener
+              1 gcs_server_processes                                             0
+              1 global_names                                                     FALSE
+              1 global_txn_processes                                             1
+              1 group_by_position_enabled                                        FALSE
+              1 hash_area_size                                                   131072
+              1 heartbeat_batch_size                                             5
+              1 heat_map                                                         OFF
+              1 hi_shared_memory_address                                         0
+              1 hs_autoregister                                                  TRUE
+              1 http_proxy
+              1 hybrid_read_only                                                 FALSE
+              1 identity_provider_config
+              1 identity_provider_config
+              1 identity_provider_config
+              1 identity_provider_type                                           NONE
+              1 identity_provider_type                                           NONE
+              1 identity_provider_type                                           NONE
+              1 ifile
+              1 ignore_session_set_param_errors
+              1 inmemory_adg_enabled                                             TRUE
+              1 inmemory_automatic_level                                         OFF
+              1 inmemory_clause_default
+              1 inmemory_deep_vectorization                                      TRUE
+              1 inmemory_expressions_usage                                       ENABLE
+              1 inmemory_force                                                   DEFAULT
+              1 inmemory_graph_algorithm_execution                               DEFAULT
+              1 inmemory_max_populate_servers                                    0
+              1 inmemory_optimized_arithmetic                                    DISABLE
+              1 inmemory_optimized_date                                          DISABLE
+              1 inmemory_prefer_xmem_memcompress
+              1 inmemory_prefer_xmem_priority
+              1 inmemory_query                                                   ENABLE
+              1 inmemory_size                                                    0
+              1 inmemory_trickle_repopulate_servers_percent                      1
+              1 inmemory_virtual_columns                                         MANUAL
+              1 inmemory_xmem_size                                               0
+              1 instance_abort_delay_time                                        0
+              1 instance_groups
+              1 instance_mode                                                    READ-WRITE
+              1 instance_name                                                    FREE
+              1 instance_number                                                  0
+              1 instance_type                                                    RDBMS
+              1 instant_restore                                                  FALSE
+              1 iorm_limit_policy                                                RM_PLAN
+              1 ipddb_enable                                                     FALSE
+              1 java_jit_enabled                                                 FALSE
+              1 java_max_sessionspace_size                                       0
+              1 java_pool_size                                                   0
+              1 java_restrict                                                    none
+              1 java_soft_sessionspace_limit                                     0
+              1 job_queue_processes                                              1
+              1 json_behavior
+              1 json_expression_check                                            off
+              1 kafka_config_file
+              1 kafka_config_file
+              1 kafka_config_file
+              1 large_pool_size                                                  0
+              1 ldap_directory_access                                            NONE
+              1 ldap_directory_access                                            NONE
+              1 ldap_directory_access                                            NONE
+              1 ldap_directory_sysauth                                           no
+              1 license_max_sessions                                             0
+              1 license_max_users                                                0
+              1 license_sessions_warning                                         0
+              1 listener_networks
+              1 load_without_compile                                             none
+              1 lob_signature_enable                                             FALSE
+              1 lock_name_space
+              1 lock_sga                                                         FALSE
+              1 lockdown_errors                                                  RAISE
+              1 lockfree_reservation                                             ON
+              1 lockfree_reservation                                             ON
+              1 lockfree_reservation                                             ON
+              1 log_archive_config
+              1 log_archive_dest
+              1 log_archive_dest_1
+              1 log_archive_dest_10
+              1 log_archive_dest_11
+              1 log_archive_dest_12
+              1 log_archive_dest_13
+              1 log_archive_dest_14
+              1 log_archive_dest_15
+              1 log_archive_dest_16
+              1 log_archive_dest_17
+              1 log_archive_dest_18
+              1 log_archive_dest_19
+              1 log_archive_dest_2
+              1 log_archive_dest_20
+              1 log_archive_dest_21
+              1 log_archive_dest_22
+              1 log_archive_dest_23
+              1 log_archive_dest_24
+              1 log_archive_dest_25
+              1 log_archive_dest_26
+              1 log_archive_dest_27
+              1 log_archive_dest_28
+              1 log_archive_dest_29
+              1 log_archive_dest_3
+              1 log_archive_dest_30
+              1 log_archive_dest_31
+              1 log_archive_dest_4
+              1 log_archive_dest_5
+              1 log_archive_dest_6
+              1 log_archive_dest_7
+              1 log_archive_dest_8
+              1 log_archive_dest_9
+              1 log_archive_dest_state_1                                         enable
+              1 log_archive_dest_state_10                                        enable
+              1 log_archive_dest_state_11                                        enable
+              1 log_archive_dest_state_12                                        enable
+              1 log_archive_dest_state_13                                        enable
+              1 log_archive_dest_state_14                                        enable
+              1 log_archive_dest_state_15                                        enable
+              1 log_archive_dest_state_16                                        enable
+              1 log_archive_dest_state_17                                        enable
+              1 log_archive_dest_state_18                                        enable
+              1 log_archive_dest_state_19                                        enable
+              1 log_archive_dest_state_2                                         enable
+              1 log_archive_dest_state_20                                        enable
+              1 log_archive_dest_state_21                                        enable
+              1 log_archive_dest_state_22                                        enable
+              1 log_archive_dest_state_23                                        enable
+              1 log_archive_dest_state_24                                        enable
+              1 log_archive_dest_state_25                                        enable
+              1 log_archive_dest_state_26                                        enable
+              1 log_archive_dest_state_27                                        enable
+              1 log_archive_dest_state_28                                        enable
+              1 log_archive_dest_state_29                                        enable
+              1 log_archive_dest_state_3                                         enable
+              1 log_archive_dest_state_30                                        enable
+              1 log_archive_dest_state_31                                        enable
+              1 log_archive_dest_state_4                                         enable
+              1 log_archive_dest_state_5                                         enable
+              1 log_archive_dest_state_6                                         enable
+              1 log_archive_dest_state_7                                         enable
+              1 log_archive_dest_state_8                                         enable
+              1 log_archive_dest_state_9                                         enable
+              1 log_archive_duplex_dest
+              1 log_archive_format                                               %t_%s_%r.dbf
+              1 log_archive_max_processes                                        4
+              1 log_archive_min_succeed_dest                                     1
+              1 log_archive_trace                                                0
+              1 log_buffer                                                       4292608
+              1 log_checkpoint_interval                                          0
+              1 log_checkpoint_timeout                                           1800
+              1 log_checkpoints_to_alert                                         FALSE
+              1 log_file_name_convert
+              1 long_module_action                                               TRUE
+              1 main_workload_type                                               OLTP
+              1 mandatory_user_profile
+              1 max_auth_servers                                                 25
+              1 max_columns                                                      STANDARD
+              1 max_columns                                                      STANDARD
+              1 max_columns                                                      STANDARD
+              1 max_datapump_jobs_per_pdb                                        AUTO
+              1 max_datapump_parallel_per_job                                    AUTO
+              1 max_dispatchers
+              1 max_dump_file_size                                               32M
+              1 max_idle_blocker_time                                            0
+              1 max_idle_time                                                    0
+              1 max_iops                                                         0
+              1 max_mbps                                                         0
+              1 max_pdbs                                                         18
+              1 max_saga_duration                                                86400
+              1 max_shared_servers
+              1 max_string_size                                                  STANDARD
+              1 memoptimize_pool_size                                            0
+              1 memoptimize_write_area_size                                      0
+              1 memoptimize_writes                                               HINT
+              1 memory_max_size                                                  0
+              1 memory_max_target                                                0
+              1 memory_size                                                      0
+              1 memory_target                                                    0
+              1 mfa_duo_api_host
+              1 mfa_duo_api_host
+              1 mfa_duo_api_host
+              1 mfa_oma_iam_domain_url
+              1 mfa_oma_iam_domain_url
+              1 mfa_oma_iam_domain_url
+              1 mfa_sender_email_displayname
+              1 mfa_sender_email_displayname
+              1 mfa_sender_email_displayname
+              1 mfa_sender_email_id
+              1 mfa_sender_email_id
+              1 mfa_sender_email_id
+              1 mfa_smtp_host
+              1 mfa_smtp_host
+              1 mfa_smtp_host
+              1 mfa_smtp_port                                                    587
+              1 mfa_smtp_port                                                    587
+              1 mfa_smtp_port                                                    587
+              1 min_auth_servers                                                 1
+              1 mle_prog_languages                                               OFF
+              1 multishard_query_data_consistency                                strong
+              1 multishard_query_data_consistency                                strong
+              1 multishard_query_data_consistency                                strong
+              1 multishard_query_partial_results                                 not allowed
+              1 multishard_query_partial_results                                 not allowed
+              1 multishard_query_partial_results                                 not allowed
+              1 native_blockchain_features
+              1 nls_calendar
+              1 nls_comp                                                         BINARY
+              1 nls_currency
+              1 nls_date_format
+              1 nls_date_language
+              1 nls_dual_currency
+              1 nls_iso_currency
+              1 nls_language                                                     AMERICAN
+              1 nls_length_semantics                                             BYTE
+              1 nls_nchar_conv_excp                                              FALSE
+              1 nls_numeric_characters
+              1 nls_sort
+              1 nls_territory                                                    AMERICA
+              1 nls_time_format
+              1 nls_time_tz_format
+              1 nls_timestamp_format
+              1 nls_timestamp_tz_format
+              1 noncdb_compatible                                                FALSE
+              1 object_cache_max_size_percent                                    10
+              1 object_cache_optimal_size                                        51200000
+              1 ofs_threads                                                      4
+              1 olap_page_pool_size                                              0
+              1 one_step_plugin_for_pdb_with_tde                                 FALSE
+              1 open_cursors                                                     300
+              1 open_links                                                       4
+              1 open_links_per_instance                                          4
+              1 optimizer_adaptive_plans                                         TRUE
+              1 optimizer_adaptive_reporting_only                                FALSE
+              1 optimizer_adaptive_statistics                                    FALSE
+              1 optimizer_capture_sql_plan_baselines                             FALSE
+              1 optimizer_capture_sql_quarantine                                 FALSE
+              1 optimizer_cross_shard_resiliency                                 FALSE
+              1 optimizer_dynamic_sampling                                       2
+              1 optimizer_features_enable                                        23.1.0
+              1 optimizer_ignore_hints                                           FALSE
+              1 optimizer_ignore_parallel_hints                                  FALSE
+              1 optimizer_index_caching                                          0
+              1 optimizer_index_cost_adj                                         100
+              1 optimizer_inmemory_aware                                         TRUE
+              1 optimizer_mode                                                   ALL_ROWS
+              1 optimizer_real_time_statistics                                   FALSE
+              1 optimizer_secure_view_merging
+              1 optimizer_session_type                                           NORMAL
+              1 optimizer_use_invisible_indexes                                  FALSE
+              1 optimizer_use_pending_statistics                                 FALSE
+              1 optimizer_use_sql_plan_baselines                                 TRUE
+              1 optimizer_use_sql_quarantine                                     TRUE
+              1 os_authent_prefix                                                ops$
+              1 os_roles                                                         FALSE
+              1 outbound_dblink_protocols                                        ALL
+              1 parallel_adaptive_multi_user                                     FALSE
+              1 parallel_degree_limit                                            CPU
+              1 parallel_degree_policy                                           MANUAL
+              1 parallel_execution_message_size                                  16384
+              1 parallel_force_local                                             FALSE
+              1 parallel_instance_group
+              1 parallel_max_servers                                             1
+              1 parallel_min_degree                                              1
+              1 parallel_min_percent                                             0
+              1 parallel_min_servers                                             1
+              1 parallel_min_time_threshold                                      AUTO
+              1 parallel_servers_target                                          1
+              1 parallel_servers_target                                          1
+              1 parallel_servers_target                                          1
+              1 parallel_threads_per_cpu                                         1
+              1 paranoid_concurrency_mode                                        FALSE
+              1 pdb_file_name_convert
+              1 pdb_lockdown
+              1 pdb_os_credential
+              1 pdb_template
+              1 pdc_file_size                                                    2101248
+              1 permit_92_wrap_format                                            FALSE
+              1 pga_aggregate_limit                                              2147483648
+              1 pga_aggregate_target                                             536870912
+              1 pkcs11_library_location
+              1 plscope_settings                                                 IDENTIFIERS:NONE
+              1 plsql_ccflags
+              1 plsql_code_type                                                  INTERPRETED
+              1 plsql_debug                                                      FALSE
+              1 plsql_function_dynamic_stats                                     PREFERENCE
+              1 plsql_implicit_conversion_bool                                   FALSE
+              1 plsql_optimize_level                                             2
+              1 plsql_v2_compatibility                                           FALSE
+              1 plsql_warnings                                                   DISABLE:ALL
+              1 pmem_filestore
+              1 pre_page_sga                                                     TRUE
+              1 priority_txns_high_wait_target                                   2147483647
+              1 priority_txns_high_wait_target                                   2147483647
+              1 priority_txns_high_wait_target                                   2147483647
+              1 priority_txns_medium_wait_target                                 2147483647
+              1 priority_txns_medium_wait_target                                 2147483647
+              1 priority_txns_medium_wait_target                                 2147483647
+              1 priority_txns_mode                                               ROLLBACK
+              1 priority_txns_mode                                               ROLLBACK
+              1 priority_txns_mode                                               ROLLBACK
+              1 private_temp_table_prefix                                        ORA$PTT_
+              1 private_temp_table_prefix                                        ORA$PTT_
+              1 private_temp_table_prefix                                        ORA$PTT_
+              1 processes                                                        200
+              1 processor_group_name
+              1 query_rewrite_enabled                                            TRUE
+              1 query_rewrite_integrity                                          enforced
+              1 rdbms_server_dn
+              1 read_only                                                        FALSE
+              1 read_only_open_delayed                                           FALSE
+              1 recovery_parallelism                                             0
+              1 recyclebin                                                       on
+              1 redo_transport_user
+              1 remote_dependencies_mode                                         TIMESTAMP
+              1 remote_login_passwordfile                                        EXCLUSIVE
+              1 remote_os_roles                                                  FALSE
+              1 remote_recovery_file_dest
+              1 replication_dependency_tracking                                  TRUE
+              1 resource_limit                                                   TRUE
+              1 resource_manage_goldengate                                       FALSE
+              1 resource_manager_cpu_allocation                                  0
+              1 resource_manager_cpu_scope                                       INSTANCE_ONLY
+              1 resource_manager_plan
+              1 resource_manager_plan
+              1 resource_manager_plan
+              1 result_cache_auto_blocklist                                      ON
+              1 result_cache_execution_threshold                                 2
+              1 result_cache_integrity                                           TRUSTED
+              1 result_cache_max_result                                          5
+              1 result_cache_max_size                                            8126464
+              1 result_cache_max_temp_result                                     5
+              1 result_cache_max_temp_result                                     5
+              1 result_cache_max_temp_result                                     5
+              1 result_cache_max_temp_size                                       81264640
+              1 result_cache_max_temp_size                                       81264640
+              1 result_cache_max_temp_size                                       81264640
+              1 result_cache_mode                                                MANUAL
+              1 result_cache_remote_expiration                                   0
+              1 resumable_timeout                                                0
+              1 rman_restore_file_storage_metadata                               FALSE
+              1 rollback_segments
+              1 run_addm_for_awr_report                                          NONE
+              1 saga_hist_retention                                              43200
+              1 saga_msg_framework                                               classic_queue
+              1 scheduler_follow_pdbtz                                           FALSE
+              1 sec_max_failed_login_attempts                                    3
+              1 sec_protocol_error_further_action                                (DROP,3)
+              1 sec_protocol_error_trace_action                                  TRACE
+              1 sec_return_server_release_banner                                 FALSE
+              1 serial_reuse                                                     disable
+              1 session_cached_cursors                                           50
+              1 session_exit_on_package_state_error                              FALSE
+              1 session_max_open_files                                           10
+              1 sessions                                                         322
+              1 sga_max_size                                                     1610612736
+              1 sga_min_size                                                     0
+              1 sga_min_size                                                     0
+              1 sga_min_size                                                     0
+              1 sga_target                                                       0
+              1 sga_target                                                       1610612736
+              1 sga_target                                                       0
+              1 shadow_core_dump                                                 partial
+              1 shard_apply_max_memory_size                                      0
+              1 shard_apply_max_memory_size                                      0
+              1 shard_apply_max_memory_size                                      0
+              1 shard_enable_raft_follower_read                                  FALSE
+              1 shard_enable_raft_follower_read                                  FALSE
+              1 shard_enable_raft_follower_read                                  FALSE
+              1 shard_queries_restricted_by_key                                  FALSE
+              1 shard_queries_restricted_by_key                                  FALSE
+              1 shard_queries_restricted_by_key                                  FALSE
+              1 shard_raft_logfile_size                                          1073741824
+              1 shared_memory_address                                            0
+              1 shared_pool_reserved_size                                        30534533
+              1 shared_pool_size                                                 0
+              1 shared_pool_size                                                 0
+              1 shared_pool_size                                                 0
+              1 shared_server_sessions
+              1 shared_servers                                                   0
+              1 shrd_dupl_table_refresh_rate                                     60
+              1 shrd_dupl_table_refresh_rate                                     60
+              1 shrd_dupl_table_refresh_rate                                     60
+              1 skip_unusable_indexes                                            TRUE
+              1 smtp_out_server
+              1 soda_behavior
+              1 sort_area_retained_size                                          0
+              1 sort_area_size                                                   65536
+              1 spatial_vector_acceleration                                      FALSE
+              1 spatial_vector_acceleration                                      FALSE
+              1 spatial_vector_acceleration                                      FALSE
+              1 spfile                                                           /opt/oracle/product/26ai/dbhomeFree/dbs/spfileFREE.ora
+              1 sql92_security                                                   TRUE
+              1 sql_error_mitigation                                             on
+              1 sql_history_enabled                                              FALSE
+              1 sql_trace                                                        FALSE
+              1 sql_transpiler                                                   OFF
+              1 sqltune_category                                                 DEFAULT
+              1 ssl_wallet
+              1 standby_db_preserve_states                                       NONE
+              1 standby_file_management                                          MANUAL
+              1 standby_parse_limit_seconds                                      300
+              1 standby_pdb_source_file_dblink
+              1 standby_pdb_source_file_directory
+              1 star_transformation_enabled                                      FALSE
+              1 statement_redirect_service
+              1 statistics_level                                                 TYPICAL
+              1 streams_pool_size                                                0
+              1 sysdate_at_dbtimezone                                            FALSE
+              1 sysdate_at_dbtimezone                                            FALSE
+              1 sysdate_at_dbtimezone                                            FALSE
+              1 tablespace_encryption                                            MANUAL_ENABLE
+              1 tablespace_encryption_default_algorithm                          AES256
+              1 tablespace_encryption_default_cipher_mode                        XTS
+              1 tape_asynch_io                                                   TRUE
+              1 target_pdbs                                                      3
+              1 tde_configuration
+              1 tde_configuration
+              1 tde_configuration
+              1 tde_key_cache                                                    FALSE
+              1 temp_undo_enabled                                                FALSE
+              1 thread                                                           0
+              1 threaded_execution                                               FALSE
+              1 time_at_dbtimezone                                               off
+              1 time_at_dbtimezone                                               off
+              1 time_at_dbtimezone                                               off
+              1 timed_os_statistics                                              0
+              1 timed_statistics                                                 TRUE
+              1 timezone_version_upgrade_integrity                               enforced
+              1 timezone_version_upgrade_online                                  FALSE
+              1 trace_enabled                                                    TRUE
+              1 tracefile_content_classification                                 DEFAULT
+              1 tracefile_identifier
+              1 transaction_recovery                                             ENABLED
+              1 transaction_recovery                                             ENABLED
+              1 transaction_recovery                                             ENABLED
+              1 transactions                                                     354
+              1 transactions_per_rollback_segment                                5
+              1 true_cache                                                       FALSE
+              1 true_cache_config
+              1 txn_auto_rollback_high_priority_wait_target                      2147483647
+              1 txn_auto_rollback_high_priority_wait_target                      2147483647
+              1 txn_auto_rollback_high_priority_wait_target                      2147483647
+              1 txn_auto_rollback_medium_priority_wait_target                    2147483647
+              1 txn_auto_rollback_medium_priority_wait_target                    2147483647
+              1 txn_auto_rollback_medium_priority_wait_target                    2147483647
+              1 txn_auto_rollback_mode                                           ROLLBACK
+              1 txn_auto_rollback_mode                                           ROLLBACK
+              1 txn_auto_rollback_mode                                           ROLLBACK
+              1 txn_priority                                                     HIGH
+              1 undo_management                                                  AUTO
+              1 undo_retention                                                   900
+              1 undo_retention                                                   900
+              1 undo_retention                                                   900
+              1 undo_tablespace                                                  UNDOTBS1
+              1 undo_tablespace                                                  UNDOTBS1
+              1 undo_tablespace                                                  UNDOTBS1
+              1 unified_audit_common_systemlog
+              1 unified_audit_systemlog
+              1 unified_audit_systemlog
+              1 unified_audit_systemlog
+              1 unified_audit_trail_exclude_columns                              NONE
+              1 unified_audit_trail_exclude_columns                              NONE
+              1 unified_audit_trail_exclude_columns                              NONE
+              1 uniform_log_timestamp_format                                     TRUE
+              1 use_dedicated_broker                                             NONE
+              1 use_large_pages                                                  TRUE
+              1 user_dump_dest                                                   /opt/oracle/product/26ai/dbhomeFree/rdbms/log
+              1 vector_index_neighbor_graph_reload                               RESTART
+              1 vector_memory_size                                               0
+              1 vector_query_capture                                             ON
+              1 wallet_root
+              1 workarea_size_policy                                             AUTO
+              1 xml_client_side_decoding                                         true
+              1 xml_db_events                                                    enable
+              1 xml_handling_of_invalid_chars                                    raise_error
+              1 xml_params
+
+~~END-DATABASE-PARAMETERS~~
+Elapsed: 00:00:00.03
+------------------------- BEGIN-SNAP-HISTORY-TZ -----------------------------------------
+Elapsed: 00:00:00.00
+
+
+
+Elapsed: 00:00:00.00
+
+~~BEGIN-SNAP-HISTORY-TZ~~
+
+      SNAP END_TIME               INST MINUTES_DIFF_FROM_UTC
+---------- ---------------- ---------- ---------------------
+         1 2026/05/19 22:16          1                     0
+         2 2026/05/19 23:01          1                     0
+         3 2026/05/19 23:28          1                     0
+         4 2026/05/19 23:29          1                     0
+         5 2026/05/19 23:38          1                     0
+         6 2026/05/19 23:38          1                     0
+         7 2026/05/19 23:42          1                     0
+
+~~END-SNAP-HISTORY-TZ~~
+Elapsed: 00:00:00.01
+------------------------- BEGIN-AVERAGE-ACTIVE-SESSIONS ---------------------------------
+
+~~BEGIN-AVERAGE-ACTIVE-SESSIONS~~
+
+   SNAP_ID WAIT_CLASS             AVG_SESS
+---------- -------------------- ----------
+         1 Application                   0
+         1 Cluster                       0
+         1 Commit                        0
+         1 Concurrency                   0
+         1 Configuration                 0
+         1 DB CPU                      .03
+         1 Network                       0
+         1 Other                         0
+         1 Scheduler                     0
+         1 System I/O                    0
+         1 User I/O                      0
+         2 Application                   0
+         2 Cluster                       0
+         2 Commit                        0
+         2 Concurrency                   0
+         2 Configuration                 0
+         2 DB CPU                      .03
+         2 Network                       0
+         2 Other                         0
+         2 Scheduler                     0
+         2 System I/O                    0
+         2 User I/O                      0
+         3 Application                   0
+         3 Cluster                       0
+         3 Commit                        0
+         3 Concurrency                   0
+         3 Configuration                 0
+         3 DB CPU                      .02
+         3 Network                       0
+         3 Other                         0
+         3 Scheduler                     0
+         3 System I/O                    0
+         3 User I/O                      0
+         4 Application                   0
+         4 Cluster                       0
+         4 Commit                        0
+         4 Concurrency                   0
+         4 Configuration                 0
+         4 DB CPU                      .04
+         4 Network                       0
+         4 Other                         0
+         4 Scheduler                     0
+         4 System I/O                    0
+         4 User I/O                      0
+         5 Application                   0
+         5 Cluster                       0
+         5 Commit                        0
+         5 Concurrency                   0
+         5 Configuration                 0
+         5 DB CPU                      .02
+         5 Network                       0
+         5 Other                         0
+         5 Scheduler                     0
+         5 System I/O                    0
+         5 User I/O                      0
+         6 Application                   0
+         6 Cluster                       0
+         6 Commit                        0
+         6 Concurrency                   0
+         6 Configuration                 0
+         6 DB CPU                      .13
+         6 Network                       0
+         6 Other                         0
+         6 Scheduler                     0
+         6 System I/O                    0
+         6 User I/O                      0
+         7 Cluster                       0
+         7 Commit                        0
+         7 Concurrency                   0
+         7 Configuration                 0
+         7 DB CPU                      .14
+         7 Network                       0
+         7 Other                       .04
+         7 Scheduler                     0
+         7 System I/O                    0
+         7 User I/O                    .02
+
+~~END-AVERAGE-ACTIVE-SESSIONS~~
+Elapsed: 00:00:00.05
+------------------------- BEGIN-IO-WAIT-HISTOGRAM ---------------------------------------
+Elapsed: 00:00:00.01
+
+
+
+Elapsed: 00:00:00.00
+
+~~BEGIN-IO-WAIT-HISTOGRAM~~
+
+   SNAP_ID WAIT_CLASS           EVENT_NAME                            WAIT_TIME_MILLI WAIT_COUNT
+---------- -------------------- ------------------------------------- --------------- ----------
+         1 User I/O             db file scattered read                     .001953125          3
+         1 User I/O             db file scattered read                      .00390625         10
+         1 User I/O             db file scattered read                       .0078125         37
+         1 User I/O             db file scattered read                        .015625         90
+         1 User I/O             db file scattered read                         .03125         92
+         1 User I/O             db file scattered read                          .0625         52
+         1 User I/O             db file scattered read                           .125         23
+         1 User I/O             db file scattered read                            .25         56
+         1 User I/O             db file scattered read                             .5         48
+         1 User I/O             db file scattered read                              1         19
+         1 User I/O             db file scattered read                              2         10
+         1 User I/O             db file scattered read                              4         12
+         1 User I/O             db file scattered read                              8          3
+         1 User I/O             db file sequential read                    .001953125         70
+         1 User I/O             db file sequential read                     .00390625       1218
+         1 User I/O             db file sequential read                      .0078125       3155
+         1 User I/O             db file sequential read                       .015625       2943
+         1 User I/O             db file sequential read                        .03125       1282
+         1 User I/O             db file sequential read                         .0625        497
+         1 User I/O             db file sequential read                          .125        266
+         1 User I/O             db file sequential read                           .25       1388
+         1 User I/O             db file sequential read                            .5        410
+         1 User I/O             db file sequential read                             1         76
+         1 User I/O             db file sequential read                             2         11
+         1 System I/O           log file parallel write                        .03125          1
+         1 System I/O           log file parallel write                         .0625         25
+         1 System I/O           log file parallel write                          .125        296
+         1 System I/O           log file parallel write                           .25        161
+         1 System I/O           log file parallel write                            .5        181
+         1 System I/O           log file parallel write                             1        102
+         1 System I/O           log file parallel write                             2         32
+         1 System I/O           log file parallel write                             4          6
+         1 System I/O           log file parallel write                             8          6
+         1 System I/O           log file parallel write                            16          1
+         1 Commit               log file sync                                   .0625          2
+         1 Commit               log file sync                                    .125          3
+         1 Commit               log file sync                                     .25         10
+         1 Commit               log file sync                                      .5          5
+         1 Commit               log file sync                                       1          2
+         1 Commit               log file sync                                       4          1
+         2 User I/O             db file scattered read                     .001953125          1
+         2 User I/O             db file scattered read                      .00390625          1
+         2 User I/O             db file scattered read                       .0078125         13
+         2 User I/O             db file scattered read                        .015625         25
+         2 User I/O             db file scattered read                         .03125         22
+         2 User I/O             db file scattered read                          .0625         14
+         2 User I/O             db file scattered read                           .125         14
+         2 User I/O             db file scattered read                            .25         85
+         2 User I/O             db file scattered read                             .5         79
+         2 User I/O             db file scattered read                              1         37
+         2 User I/O             db file scattered read                              2         47
+         2 User I/O             db file scattered read                              4         24
+         2 User I/O             db file scattered read                              8         13
+         2 User I/O             db file scattered read                             16          1
+         2 User I/O             db file sequential read                    .001953125         18
+         2 User I/O             db file sequential read                     .00390625        528
+         2 User I/O             db file sequential read                      .0078125       1436
+         2 User I/O             db file sequential read                       .015625       1041
+         2 User I/O             db file sequential read                        .03125        684
+         2 User I/O             db file sequential read                         .0625       1146
+         2 User I/O             db file sequential read                          .125        652
+         2 User I/O             db file sequential read                           .25       2929
+         2 User I/O             db file sequential read                            .5       1448
+         2 User I/O             db file sequential read                             1        399
+         2 User I/O             db file sequential read                             2        249
+         2 User I/O             db file sequential read                             4        110
+         2 User I/O             db file sequential read                             8         12
+         2 User I/O             db file sequential read                            16          1
+         2 System I/O           log file parallel write                          .125         30
+         2 System I/O           log file parallel write                           .25        100
+         2 System I/O           log file parallel write                            .5        129
+         2 System I/O           log file parallel write                             1         68
+         2 System I/O           log file parallel write                             2         20
+         2 System I/O           log file parallel write                             4         18
+         2 System I/O           log file parallel write                             8          6
+         2 System I/O           log file parallel write                            16          4
+         2 System I/O           log file parallel write                            32          2
+         2 Commit               log file sync                                 .015625          1
+         2 Commit               log file sync                                    .125          2
+         2 Commit               log file sync                                     .25          4
+         2 Commit               log file sync                                      .5          4
+         2 Commit               log file sync                                       1          2
+         2 Commit               log file sync                                       2          2
+         3 User I/O             db file scattered read                        .015625          4
+         3 User I/O             db file scattered read                         .03125          2
+         3 User I/O             db file scattered read                          .0625          2
+         3 User I/O             db file scattered read                           .125          2
+         3 User I/O             db file scattered read                            .25         11
+         3 User I/O             db file scattered read                             .5         19
+         3 User I/O             db file scattered read                              1         14
+         3 User I/O             db file scattered read                              2         10
+         3 User I/O             db file scattered read                              4          3
+         3 User I/O             db file scattered read                              8          2
+         3 User I/O             db file scattered read                             16          1
+         3 User I/O             db file sequential read                    .001953125         10
+         3 User I/O             db file sequential read                     .00390625        295
+         3 User I/O             db file sequential read                      .0078125        861
+         3 User I/O             db file sequential read                       .015625        560
+         3 User I/O             db file sequential read                        .03125        394
+         3 User I/O             db file sequential read                         .0625        515
+         3 User I/O             db file sequential read                          .125        243
+         3 User I/O             db file sequential read                           .25        736
+         3 User I/O             db file sequential read                            .5        336
+         3 User I/O             db file sequential read                             1         81
+         3 User I/O             db file sequential read                             2         17
+         3 User I/O             db file sequential read                             4          8
+         3 User I/O             db file sequential read                            16          1
+         3 System I/O           log file parallel write                          .125        461
+         3 System I/O           log file parallel write                           .25        199
+         3 System I/O           log file parallel write                            .5        200
+         3 System I/O           log file parallel write                             1        165
+         3 System I/O           log file parallel write                             2         54
+         3 System I/O           log file parallel write                             4         14
+         3 System I/O           log file parallel write                             8          4
+         3 System I/O           log file parallel write                            16          1
+         3 Commit               log file sync                                    .125          3
+         3 Commit               log file sync                                     .25         10
+         3 Commit               log file sync                                      .5          8
+         3 Commit               log file sync                                       1          4
+         3 Commit               log file sync                                       2          2
+         4 User I/O             db file scattered read                             .5          2
+         4 User I/O             db file sequential read                     .00390625          7
+         4 User I/O             db file sequential read                      .0078125         42
+         4 User I/O             db file sequential read                       .015625         70
+         4 User I/O             db file sequential read                        .03125         53
+         4 User I/O             db file sequential read                         .0625         40
+         4 User I/O             db file sequential read                          .125         16
+         4 User I/O             db file sequential read                           .25        175
+         4 User I/O             db file sequential read                            .5         88
+         4 User I/O             db file sequential read                             1          5
+         4 User I/O             db file sequential read                             2          1
+         4 System I/O           log file parallel write                          .125          6
+         4 System I/O           log file parallel write                           .25         14
+         4 System I/O           log file parallel write                            .5         11
+         4 System I/O           log file parallel write                             1          8
+         4 System I/O           log file parallel write                             2          4
+         4 System I/O           log file parallel write                             4          3
+         4 System I/O           log file parallel write                             8          2
+         4 Commit               log file sync                                       1          1
+         5 User I/O             db file scattered read                            .25          1
+         5 User I/O             db file sequential read                      .0078125          6
+         5 User I/O             db file sequential read                       .015625         45
+         5 User I/O             db file sequential read                        .03125         55
+         5 User I/O             db file sequential read                         .0625         16
+         5 User I/O             db file sequential read                          .125          5
+         5 User I/O             db file sequential read                           .25         17
+         5 User I/O             db file sequential read                            .5         23
+         5 User I/O             db file sequential read                             1          9
+         5 System I/O           log file parallel write                         .0625          3
+         5 System I/O           log file parallel write                          .125        139
+         5 System I/O           log file parallel write                           .25         78
+         5 System I/O           log file parallel write                            .5        103
+         5 System I/O           log file parallel write                             1         49
+         5 System I/O           log file parallel write                             2         21
+         5 System I/O           log file parallel write                             4          3
+         5 System I/O           log file parallel write                             8          4
+         5 Commit               log file sync                                    .125          1
+         5 Commit               log file sync                                     .25          4
+         5 Commit               log file sync                                       1          2
+         5 Commit               log file sync                                       2          1
+         6 User I/O             db file sequential read                      .0078125         17
+         6 User I/O             db file sequential read                       .015625         82
+         6 User I/O             db file sequential read                        .03125         61
+         6 User I/O             db file sequential read                         .0625         31
+         6 User I/O             db file sequential read                          .125          7
+         6 User I/O             db file sequential read                           .25         11
+         6 User I/O             db file sequential read                            .5          8
+         6 User I/O             db file sequential read                             1          5
+         6 System I/O           log file parallel write                          .125          5
+         6 System I/O           log file parallel write                           .25          9
+         6 System I/O           log file parallel write                            .5         10
+         6 System I/O           log file parallel write                             1          4
+         6 System I/O           log file parallel write                             2          2
+         6 System I/O           log file parallel write                             4          2
+         6 System I/O           log file parallel write                             8          2
+         6 System I/O           log file parallel write                            16          1
+         7 User I/O             db file scattered read                      .00390625          1
+         7 User I/O             db file scattered read                       .0078125         11
+         7 User I/O             db file scattered read                        .015625         43
+         7 User I/O             db file scattered read                         .03125         41
+         7 User I/O             db file scattered read                          .0625          8
+         7 User I/O             db file scattered read                           .125         10
+         7 User I/O             db file scattered read                            .25         53
+         7 User I/O             db file scattered read                             .5         50
+         7 User I/O             db file scattered read                              1         37
+         7 User I/O             db file scattered read                              2         20
+         7 User I/O             db file scattered read                              4         19
+         7 User I/O             db file scattered read                              8         10
+         7 User I/O             db file scattered read                             16          3
+         7 User I/O             db file sequential read                    .001953125          3
+         7 User I/O             db file sequential read                     .00390625        454
+         7 User I/O             db file sequential read                      .0078125       1692
+         7 User I/O             db file sequential read                       .015625       2171
+         7 User I/O             db file sequential read                        .03125        705
+         7 User I/O             db file sequential read                         .0625        250
+         7 User I/O             db file sequential read                          .125        145
+         7 User I/O             db file sequential read                           .25        652
+         7 User I/O             db file sequential read                            .5        248
+         7 User I/O             db file sequential read                             1         53
+         7 User I/O             db file sequential read                             2         14
+         7 User I/O             db file sequential read                             4          1
+         7 System I/O           log file parallel write                         .0625         13
+         7 System I/O           log file parallel write                          .125         68
+         7 System I/O           log file parallel write                           .25         48
+         7 System I/O           log file parallel write                            .5         46
+         7 System I/O           log file parallel write                             1         27
+         7 System I/O           log file parallel write                             2         10
+         7 System I/O           log file parallel write                             4          2
+         7 Commit               log file sync                                  .03125          1
+         7 Commit               log file sync                                     .25          2
+
+~~END-IO-WAIT-HISTOGRAM~~
+Elapsed: 00:00:00.01
+------------------------- BEGIN-IO-OBJECT-TYPE ------------------------------------------
+
+~~BEGIN-IO-OBJECT-TYPE~~
+
+   SNAP_ID OBJECT_TYPE     LOGICAL_READ_GB PHYSICAL_READ_GB PHYSICAL_WRITE_GB   GB_ADDED
+---------- --------------- --------------- ---------------- ----------------- ----------
+         1 INDEX                       2.2               .1                 0          0
+         1 LOB                          .1                0                 0          0
+         1 TABLE                       1.6               .1                 0          0
+         2 INDEX                       1.2               .1                 0          0
+         2 LOB PARTITION                 0                0                 0          0
+         2 TABLE                       1.2               .1                 0          0
+         3 INDEX                       1.2                0                 0          0
+         3 LOB                           0                0                 0          0
+         3 LOB PARTITION                 0                0                 0          0
+         3 TABLE                       1.8                0                 0          0
+         4 INDEX                        .2                0                 0          0
+         4 LOB PARTITION                 0                0                 0          0
+         4 TABLE                        .1                0                 0          0
+         5 INDEX                        .3                0                 0          0
+         5 LOB PARTITION                 0                0                 0          0
+         5 TABLE                        .2                0                 0          0
+         6 INDEX                        .3                0                 0          0
+         6 LOB PARTITION                 0                0                 0          0
+         6 TABLE                        .1                0                 0          0
+         7 INDEX                       1.1                0                 0          0
+         7 TABLE                        .9               .1                 0          0
+
+~~END-IO-OBJECT-TYPE~~
+Elapsed: 00:00:00.02
+------------------------- BEGIN-IOSTAT-BY-FUNCTION --------------------------------------
+Elapsed: 00:00:00.00
+
+
+
+Elapsed: 00:00:00.00
+
+~~BEGIN-IOSTAT-BY-FUNCTION~~
+
+   SNAP_ID FUNCTION_NAME           SM_R_REQS  SM_W_REQS  LG_R_REQS  LG_W_REQS
+---------- ---------------------- ---------- ---------- ---------- ----------
+         1 ARCH                            0          0          0          0
+         1 Archive Manager                 0          0          0          0
+         1 Buffer Cache Reads          10717          0         84          0
+         1 DBWR                           18        392          0          4
+         1 Data Pump                       0          0          0          0
+         1 Direct Reads                   11          0          9          0
+         1 Direct Writes                   0         34          0          0
+         1 Inmemory Populate               0          0          0          0
+         1 LGWR                           14        744          0         12
+         1 Others                        375        622         18          4
+         1 RMAN                            0          0          0          0
+         1 Recovery                       56          1         18          0
+         1 Smart Scan                      0          0          0          0
+         1 Streams AQ                    342          0          0          0
+         1 XDB                             0          0          0          0
+         2 ARCH                            0          0          0          0
+         2 Archive Manager                 0          0          0          0
+         2 Buffer Cache Reads           9903          0         75          0
+         2 DBWR                           14        220          0          2
+         2 Data Pump                       0          0          0          0
+         2 Direct Reads                   11          0          9          0
+         2 Direct Writes                   0         15          0          4
+         2 Inmemory Populate               0          0          0          0
+         2 LGWR                           12        390          0          8
+         2 Others                        370        601         28          0
+         2 RMAN                            0          0          0          0
+         2 Recovery                        0          0          0          0
+         2 Smart Scan                      0          0          0          0
+         2 Streams AQ                    341          0          0          0
+         2 XDB                             0          0          0          0
+         3 ARCH                            0          0          0          0
+         3 Archive Manager                 0          0          0          0
+         3 Buffer Cache Reads           4567          0          9          0
+         3 DBWR                            0       1077          0         50
+         3 Data Pump                       0          0          0          0
+         3 Direct Reads                    0          0          0          0
+         3 Direct Writes                   0         54          0          9
+         3 Inmemory Populate               0          0          0          0
+         3 LGWR                            5       1283          0         22
+         3 Others                        688       1327          0          0
+         3 RMAN                            0          0          0          0
+         3 Recovery                        0          0          0          0
+         3 Smart Scan                      0          0          0          0
+         3 Streams AQ                      0          0          0          0
+         3 XDB                             0          0          0          0
+         4 ARCH                            0          0          0          0
+         4 Archive Manager                 0          0          0          0
+         4 Buffer Cache Reads            654          0          0          0
+         4 DBWR                            0          9          0          0
+         4 Data Pump                       0          0          0          0
+         4 Direct Reads                    0          0          0          0
+         4 Direct Writes                   0         25          0          0
+         4 Inmemory Populate               0          0          0          0
+         4 LGWR                            0         49          0          8
+         4 Others                        106         52          0          0
+         4 RMAN                            0          0          0          0
+         4 Recovery                        0          0          0          0
+         4 Smart Scan                      0          0          0          0
+         4 Streams AQ                      0          0          0          0
+         4 XDB                             0          0          0          0
+         5 ARCH                            0          0          0          0
+         5 Archive Manager                 0          0          0          0
+         5 Buffer Cache Reads             98          0          0          0
+         5 DBWR                            0        452          0         43
+         5 Data Pump                       0          0          0          0
+         5 Direct Reads                    0          0          0          0
+         5 Direct Writes                   6         24          0          0
+         5 Inmemory Populate               0          0          0          0
+         5 LGWR                            2        410          0          6
+         5 Others                        265        490          0          0
+         5 RMAN                            0          0          0          0
+         5 Recovery                        0          0          0          0
+         5 Smart Scan                      0          0          0          0
+         5 Streams AQ                      0          0          0          0
+         5 XDB                             0          0          0          0
+         6 ARCH                            0          0          0          0
+         6 Archive Manager                 0          0          0          0
+         6 Buffer Cache Reads            199          0          0          0
+         6 DBWR                            0         12          0          0
+         6 Data Pump                       0          0          0          0
+         6 Direct Reads                    0          0          0          0
+         6 Direct Writes                   0         12          0          0
+         6 Inmemory Populate               0          0          0          0
+         6 LGWR                            0         42          0          6
+         6 Others                        104         53          0          0
+         6 RMAN                            0          0          0          0
+         6 Recovery                        0          0          0          0
+         6 Smart Scan                      0          0          0          0
+         6 Streams AQ                      0          0          0          0
+         6 XDB                             0          0          0          0
+         7 ARCH                            0          0          0          0
+         7 Archive Manager                 0          0          0          0
+         7 Buffer Cache Reads           5064          0         63          0
+         7 DBWR                           18          7          0          0
+         7 Data Pump                       0          0          0          0
+         7 Direct Reads                   10          0         10          0
+         7 Direct Writes                   0          0          0          0
+         7 Inmemory Populate               0          0          0          0
+         7 LGWR                           14        167          0          1
+         7 Others                        199        254         13          0
+         7 RMAN                            0          0          0          0
+         7 Recovery                       14          1         17          0
+         7 Smart Scan                      0          0          0          0
+         7 Streams AQ                      0          0          0          0
+         7 XDB                             0          0          0          0
+
+~~END-IOSTAT-BY-FUNCTION~~
+Elapsed: 00:00:00.01
+------------------------- BEGIN-TOP-N-TIMED-EVENTS --------------------------------------
+
+~~BEGIN-TOP-N-TIMED-EVENTS~~
+
+   SNAP_ID WAIT_CLASS           EVENT_NAME                                                       PCTDBT TOTAL_TIME_S
+---------- -------------------- ------------------------------------------------------------ ---------- ------------
+         1 DB CPU               DB CPU                                                           104.04     19710666
+         1 Other                oracle thread bootstrap                                            7.28      1379541
+         1 User I/O             db file sequential read                                            2.98       565010
+         1 System I/O           control file parallel write                                         1.8       340608
+         1 System I/O           log file parallel write                                            1.53       288916
+         2 DB CPU               DB CPU                                                           100.52     15397147
+         2 User I/O             db file sequential read                                           14.06      2153251
+         2 Other                oracle thread bootstrap                                           13.04      1997019
+         2 System I/O           control file parallel write                                        2.41       369198
+         2 System I/O           log file parallel write                                            2.04       312876
+         3 DB CPU               DB CPU                                                           114.25     29870708
+         3 Other                oracle thread bootstrap                                            5.31      1387775
+         3 System I/O           control file parallel write                                        3.87      1012848
+         3 System I/O           db file async I/O submit                                           2.09       546813
+         3 User I/O             db file sequential read                                            1.69       441372
+         4 DB CPU               DB CPU                                                            103.2      2264323
+         4 User I/O             db file sequential read                                            3.73        81926
+         4 System I/O           control file parallel write                                        2.73        59803
+         4 System I/O           log file parallel write                                            1.94        42512
+         4 User I/O             direct path write                                                   .57        12493
+         5 DB CPU               DB CPU                                                           116.76      9073745
+         5 System I/O           control file parallel write                                        4.31       334757
+         5 Other                oracle thread bootstrap                                            3.87       300748
+         5 System I/O           db file async I/O submit                                           3.03       235496
+         5 System I/O           log file parallel write                                            1.98       154100
+         6 DB CPU               DB CPU                                                           101.53      1566905
+         6 System I/O           log file parallel write                                            2.34        36056
+         6 User I/O             db file sequential read                                             .86        13336
+         6 System I/O           control file parallel write                                         .77        11846
+         6 User I/O             direct path write                                                   .45         7013
+         7 DB CPU               DB CPU                                                             76.5      4001598
+         7 Other                oracle thread bootstrap                                           20.35      1064556
+         7 User I/O             db file sequential read                                            6.24       326634
+         7 User I/O             db file scattered read                                             4.45       232742
+         7 Other                os thread creation                                                 2.83       148278
+
+~~END-TOP-N-TIMED-EVENTS~~
+Elapsed: 00:00:00.05
+------------------------- BEGIN-SYSSTAT -------------------------------------------------
+
+~~BEGIN-SYSSTAT~~
+
+   SNAP_ID cell_flash_hits  read_iops    read_mb read_mb_opt cell_int_mb cell_int_ss_mb ehcc_con_dmls
+---------- --------------- ---------- ---------- ----------- ----------- -------------- -------------
+         1               0       20.3         .3           0          .4              0
+         2               0       18.9         .3           0          .3              0
+         3               0          3          0           0          .1              0
+         4               0       12.3         .1           0          .2              0
+         5               0         .7          0           0          .1              0
+         6               0         25         .2           0          .6              0
+         7               0      236.6        4.9           0         5.1              0
+
+~~END-SYSSTAT~~
+Elapsed: 00:00:00.02
+------------------------- BEGIN-SEGMENT-IO ----------------------------------------------
+
+~~BEGIN-SEGMENT-IO~~
+
+OWNER                                                                                                                            OBJECT_NAME                                                                                                                      OBJECT_TYPE     SUBOBJECT_NAME                                                                                                                   TABLESPACE_NAME                PARTITION_SIZE_GB_RUNNING PARTITION_SIZE_GB SEG_SIZE_GB DB_SIZE_GB DB_DISK_SPACE_ALLOC_GB DB_TEMP_SPACE_ALLOC_GB SEG_PHYSICAL_READS SEG_PHYSICAL_WRITES SEG_PHYSICAL_IO SEG_PHYSICAL_IO_RUNNING SEG_PHYSICAL_IO_TOT PHYSICAL_READS PHYSICAL_WRITES PHYSICAL_IO PHYSICAL_IO_RUNNING PHYSICAL_IO_TOT PHYSICAL_READS_DIRECT PHYSICAL_WRITES_DIRECT SEG_PHYSICAL_READS_DIRECT SEG_PHYSICAL_WRITES_DIRECT   INST_CNT STARTUP_TIME                  REPORT_TIME_UTC               UPTIME_SEC SEGMENT_PRESENT_FLG RUN_SEG_PHYS_IO_PCT_OF_TOT RUN_PHYSCIAL_IO_PCT_OF_TOT   ROWS_TOT
+-------------------------------------------------------------------------------------------------------------------------------- -------------------------------------------------------------------------------------------------------------------------------- --------------- -------------------------------------------------------------------------------------------------------------------------------- ------------------------------ ------------------------- ----------------- ----------- ---------- ---------------------- ---------------------- ------------------ ------------------- --------------- ----------------------- ------------------- -------------- --------------- ----------- ------------------- --------------- --------------------- ---------------------- ------------------------- -------------------------- ---------- ----------------------------- ----------------------------- ---------- ------------------- -------------------------- -------------------------- ----------
+GSMADMIN_INTERNAL                                                                                                                SYS_IOT_TOP_26172                                                                                                                INDEX                                                                                                                                            SYSAUX                                                                                      1.795                  1.646                    .01                  0                   0               0                       0                   0              2               0           2                  33              40                     0                      0                         0                          0          1 2026/MAY/19 23:47:28          2026/MAY/19 23:51:04                 216                   0                          0                       82.5         10
+DVSYS                                                                                                                            CONFIG$                                                                                                                          TABLE                                                                                                                                            SYSAUX                                                                                      1.795                  1.646                    .01                  0                   0               0                       0                   0              6               0           6                  31              40                     0                      0                         0                          0          1 2026/MAY/19 23:47:28          2026/MAY/19 23:51:04                 216                   0                          0                       77.5         10
+GSMADMIN_INTERNAL                                                                                                                AQ$_CHANGE_LOG_QUEUE_TABLE_L                                                                                                     TABLE                                                                                                                                            SYSAUX                                                                                      1.795                  1.646                    .01                  0                   0               0                       0                   0              1               0           1                  34              40                     0                      0                         0                          0          1 2026/MAY/19 23:47:28          2026/MAY/19 23:51:04                 216                   0                          0                         85         10
+LBACSYS                                                                                                                          OLS$PROPS                                                                                                                        TABLE                                                                                                                                            SYSTEM                                                                                      1.795                  1.646                    .01                  0                   0               0                       0                   0              1               0           1                  35              40                     0                      0                         0                          0          1 2026/MAY/19 23:47:28          2026/MAY/19 23:51:04                 216                   0                          0                       87.5         10
+VECSYS                                                                                                                           SYS_IL0000001997C00007$$                                                                                                         INDEX                                                                                                                                            SYSAUX                                                                                      1.795                  1.646                    .01                  0                   0               0                       0                   0              1               0           1                  40              40                     0                      0                         0                          0          1 2026/MAY/19 23:47:28          2026/MAY/19 23:51:04                 216                   0                          0                        100         10
+LBACSYS                                                                                                                          OLS_PK_LP                                                                                                                        INDEX                                                                                                                                            SYSTEM                                                                                      1.795                  1.646                    .01                  0                   0               0                       0                   0              1               0           1                  37              40                     0                      0                         0                          0          1 2026/MAY/19 23:47:28          2026/MAY/19 23:51:04                 216                   0                          0                       92.5         10
+VECSYS                                                                                                                           SYS_LOB0000001997C00007$$                                                                                                        LOB                                                                                                                                              SYSAUX                                                                                      1.795                  1.646                    .01                  0                   0               0                       0                   0              1               0           1                  38              40                     0                      0                         0                          0          1 2026/MAY/19 23:47:28          2026/MAY/19 23:51:04                 216                   0                          0                         95         10
+VECSYS                                                                                                                           VECTOR$INDEX$BUILD$                                                                                                              TABLE                                                                                                                                            SYSAUX                                                                                      1.795                  1.646                    .01                  0                   0               0                       0                   0              1               0           1                  39              40                     0                      0                         0                          0          1 2026/MAY/19 23:47:28          2026/MAY/19 23:51:04                 216                   0                          0                       97.5         10
+DVSYS                                                                                                                            IDENTITY$                                                                                                                        TABLE                                                                                                                                            SYSAUX                                                                                      1.795                  1.646                    .01                  0                   0               0                       0                   0             25               0          25                  25              40                     0                      0                         0                          0          1 2026/MAY/19 23:47:28          2026/MAY/19 23:51:04                 216                   0                          0                       62.5         10
+VECSYS                                                                                                                           VECTOR$INDEX                                                                                                                     TABLE                                                                                                                                            SYSAUX                                                                                      1.795                  1.646                    .01                  0                   0               0                       0                   0              1               0           1                  36              40                     0                      0                         0                          0          1 2026/MAY/19 23:47:28          2026/MAY/19 23:51:04                 216                   0                          0                         90         10
+
+~~END-SEGMENT-IO~~
+Elapsed: 00:00:00.86
+------------------------- BEGIN-TOP-SQL-SUMMARY -----------------------------------------
+
+~~BEGIN-TOP-SQL-SUMMARY~~
+
+MODULE                                                                                                                   ACTION                                                           SQL_ID        COMMAND_NAME  PARSING_SCHEMA_NAME                                                                                                               EXEC_RANK  ELAP_RANK LOG_READS_RANK PHYS_READS_RANK      EXECS       ELAP  LOG_READS PHY_READ_GB PLAN_COUNT PX_SERVERS_EXECS
+------------------------------------------------------------------------------------------------------------------------ ---------------------------------------------------------------- ------------- ------------- -------------------------------------------------------------------------------------------------------------------------------- ---------- ---------- -------------- --------------- ---------- ---------- ---------- ----------- ---------- ----------------
+SQL Developer                                                                                                                                                                             1ybfa7xdstuj8 SELECT        APP_USER                                                                                                                                  6          1              2               4          1    1100884       6156           0          1                0
+SQL Developer                                                                                                                                                                             40v5q2bb9cnm4 SELECT        APP_USER                                                                                                                                  6          2             10               8          1     421045        193           0          1                0
+SQL*Plus                                                                                                                                                                                  8qv0tg86j92jb SELECT        OPS$ORACLE                                                                                                                                1          3             14               8        277     373582         18           0          1                0
+SQL Developer                                                                                                                                                                             54bs20kz3xxub SELECT        APP_USER                                                                                                                                  3          4              8               8          4     278126        318           0          1                0
+SQL Developer                                                                                                                                                                             g0bkd0gkwt11p SELECT        APP_USER                                                                                                                                  4          5              1               1          3     274403      14500           0          1                0
+SQL Developer                                                                                                                                                                             7csat3hh6gqv5 PL/SQLEXECUTE APP_USER                                                                                                                                  2          6              5               2         43     204586       3771           0          1                0
+SQL Developer                                                                                                                                                                             8g66a3g76ma3m SELECT        APP_USER                                                                                                                                  4          7              4               8          3     103317       3915           0          1                0
+SQL Developer                                                                                                                                                                             5rw19y2bttqbr SELECT        APP_USER                                                                                                                                  4          8             11               8          3      96963        135           0          1                0
+JDBC Thin Client                                                                                                                                                                          dudkrmwmb41cs SELECT        APP_USER                                                                                                                                  5          9              6               3          2      78893        951           0          1                0
+SQL Developer                                                                                                                                                                             dazhz2dtm3yr0 SELECT        APP_USER                                                                                                                                  4         10              3               5          3      50857       4047           0          1                0
+SQL Developer                                                                                                                                                                             08aka2wb9u752 SELECT        APP_USER                                                                                                                                  5         11             12               8          2      49070        103           0          1                0
+SQL Developer                                                                                                                                                                             067m2nupjrv9w SELECT        APP_USER                                                                                                                                  5         12             13               8          2      37111        102           0          1                0
+SQL Developer                                                                                                                                                                             53ng2br03mbqs SELECT        APP_USER                                                                                                                                  4         13              9               7          3      34838        197           0          1                0
+SQL Developer                                                                                                                                                                             cvrz517ajwkrt SELECT        APP_USER                                                                                                                                  5         14              7               6          2      10346        644           0          1                0
+
+~~END-TOP-SQL-SUMMARY~~
+Elapsed: 00:00:00.03
+------------------------- BEGIN-TOP-SQL-BY-SNAPID ---------------------------------------
+
+~~BEGIN-TOP-SQL-BY-SNAPID~~
+
+   SNAP_ID PARSING_SCHEMA_NAME               PLAN_HASH MODULE                            ACTION                            SQL_ID        COMMAND_NAME       EXECS BUFFER_GETS  ROWS_PROC    CPU_T_S     ELAP_S    READ_MB    IO_WAIT  ELAP_RANK PLAN_CHANGE      PLANS PHY_READ_GB PX_SERVERS_EXECS DIRECT_W_GB IOWAIT_TIME        PIO
+---------- -------------------------------- ---------- --------------------------------- --------------------------------- ------------- ------------- ---------- ----------- ---------- ---------- ---------- ---------- ---------- ---------- ----------- ---------- ----------- ---------------- ----------- ----------- ----------
+         1 APP_USER                          670191952 SQL Developer                                                       1ybfa7xdstuj8 SELECT                 1        6156          3        1.1        1.1         .3          0          1           0          1           0                0           0        1350         34
+         1 APP_USER                         3605049228 SQL Developer                                                       40v5q2bb9cnm4 SELECT                 1         193          0         .4         .4          0          0          2           0          1           0                0           0           0          0
+         1 APP_USER                         1764923488 SQL Developer                                                       g0bkd0gkwt11p SELECT                 3       14500          0         .3         .3       18.2         .1          3           0          1           0                0           0       71945       2330
+         1 APP_USER                         1764923488 SQL Developer                                                       54bs20kz3xxub SELECT                 2         155          0         .1         .1          0          0          4           0          1           0                0           0           0          0
+         1 APP_USER                                  0 SQL Developer                                                       7csat3hh6gqv5 PL/SQLEXECUTE         27        1895          2         .1         .1         .8          0          5           0          1           0                0           0       13425        100
+         1 APP_USER                          786898444 SQL Developer                                                       dazhz2dtm3yr0 SELECT                 3        4047          0          0         .1         .1          0          6           0          1           0                0           0        1431          8
+         1 APP_USER                          781351331 SQL Developer                                                       08aka2wb9u752 SELECT                 2         103          2          0          0          0          0          7           0          1           0                0           0           0          0
+         1 APP_USER                          480411405 SQL Developer                                                       067m2nupjrv9w SELECT                 2         102          6          0          0          0          0          8           0          1           0                0           0           0          0
+         2 APP_USER                         1764923488 SQL Developer                                                       54bs20kz3xxub SELECT                 2         163          0         .2         .2          0          0          1           0          1           0                0           0           0          0
+         2 APP_USER                         1041516474 SQL Developer                                                       8g66a3g76ma3m SELECT                 3        3915         23         .1         .1          0          0          2           0          1           0                0           0           0          0
+         2 OPS$ORACLE                       4018650335 SQL*Plus                                                            8qv0tg86j92jb SELECT                59           4         59         .1         .1          0          0          3           0          1           0                0           0       10267          0
+         2 APP_USER                         1764923488 SQL Developer                                                       5rw19y2bttqbr SELECT                 3         135          0         .1         .1          0          0          4           0          1           0                0           0           0          0
+         2 APP_USER                         2972947927 JDBC Thin Client                                                    dudkrmwmb41cs SELECT                 2         951          3         .1         .1         .3          0          5           0          1           0                0           0       11798         37
+         2 APP_USER                         1181297405 SQL Developer                                                       53ng2br03mbqs SELECT                 3         197          0          0          0          0          0          6           0          1           0                0           0         282          1
+         2 APP_USER                         3530495207 SQL Developer                                                       cvrz517ajwkrt SELECT                 2         644         42          0          0          0          0          7           0          1           0                0           0          44          2
+         3 OPS$ORACLE                       4018650335 SQL*Plus                                                            8qv0tg86j92jb SELECT               159           0        159         .1         .2          0          0          1           0          1           0                0           0       25885          0
+         3 APP_USER                                  0 SQL Developer                                                       7csat3hh6gqv5 PL/SQLEXECUTE         16        1876          2         .1         .1         .3          0          2           0          1           0                0           0       10975         36
+         4 OPS$ORACLE                       4018650335 SQL*Plus                                                            8qv0tg86j92jb SELECT                 5          14          5          0          0          0          0          1           0          1           0                0           0        2979          0
+         5 OPS$ORACLE                       4018650335 SQL*Plus                                                            8qv0tg86j92jb SELECT                54           0         54          0         .1          0          0          1           0          1           0                0           0        8287          0
+
+~~END-TOP-SQL-BY-SNAPID~~
+Elapsed: 00:00:00.01
+------------------------- BEGIN-DIAGNOSTICS-ROW-COUNTS -----------------------------------
+
+~~BEGIN-DIAGNOSTICS-ROW-COUNTS~~
+
+DBA_HIST_SYSM_SUMM_ROWS DBA_HIST_SYSSTAT_ROWS DBA_HIST_PARAMETER_ROWS DBA_HIST_SNAPSHOT_ROWS DBA_HIST_SYSTEM_EVENT_ROWS DBA_HIST_SYS_TIME_MODEL_ROWS DBA_HIST_SEG_STAT_OBJ_ROWS DBA_HIST_IOSTAT_FUNCTION_ROWS DBA_HIST_TABLESPACE_ROWS DBA_HIST_SEG_STAT_ROWS DBA_HIST_TBSPC_SPACE_ROWS DBA_HIST_SQLSTAT_ROWS DBA_HIST_SQLTEXT_ROWS
+----------------------- --------------------- ----------------------- ---------------------- -------------------------- ---------------------------- -------------------------- ----------------------------- ------------------------ ---------------------- ------------------------- --------------------- ---------------------
+                    966                 20685                    4571                      7                        657                          217                        212                           105                       10                    488                        84                   587                   346
+
+~~END-DIAGNOSTICS-ROW-COUNTS~~
+timing for: awr-hist-1497016490-FREE-0-7.out
+Elapsed: 00:00:01.32

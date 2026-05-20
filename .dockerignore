@@ -1,0 +1,8 @@
+target/
+.git/
+.idea/
+.vscode/
+documentacao-dockerhub-azure/
+Docker/
+logdata/
+*.log

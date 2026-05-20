@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Web - CRUD de Alunos</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <main class="page">
+        <section class="hero">
+            <div class="hero__content">
+                <p class="eyebrow">Challenge Clyvo Vet - Spring Boot + Oracle</p>
+                <h1>Portal web com API REST e banco Oracle</h1>
+                <p class="hero__text">
+                    Cadastre alunos para validacao do CRUD e consulte a API Clyvo Vet documentada no Swagger.
+                </p>
+            </div>
+            <div class="hero__card">
+                <p class="hero__label">API</p>
+                <strong>/alunos e /api/v1</strong>
+                <span>Frontend, backend e Oracle rodando em containers Docker.</span>
+            </div>
+        </section>
+
+        <section class="panel">
+            <div class="panel__header">
+                <div>
+                    <p class="eyebrow">Formulario</p>
+                    <h2>Novo aluno</h2>
+                </div>
+                <button id="clear-button" type="button" class="button button--ghost">Limpar</button>
+            </div>
+
+            <form id="aluno-form" class="form">
+                <div class="form__grid">
+                    <label class="field">
+                        <span>RM</span>
+                        <input id="rmAluno" name="rmAluno" type="text" maxlength="7" placeholder="RM12345" required>
+                    </label>
+
+                    <label class="field">
+                        <span>Nome</span>
+                        <input id="nmAluno" name="nmAluno" type="text" maxlength="80" placeholder="Nome do aluno" required>
+                    </label>
+
+                    <label class="field">
+                        <span>Data de nascimento</span>
+                        <input id="dtNascimento" name="dtNascimento" type="date" required>
+                    </label>
+                </div>
+
+                <div class="form__actions">
+                    <button id="submit-button" type="submit" class="button">Salvar aluno</button>
+                    <span id="form-mode" class="form__mode">Modo cadastro</span>
+                </div>
+            </form>
+        </section>
+
+        <section class="panel panel--highlight">
+            <div class="panel__header panel__header--stack-mobile">
+                <div>
+                    <p class="eyebrow">Entrega Final</p>
+                    <h2>Enviar conclusao do desafio</h2>
+                    <p class="panel__subtext">
+                        Depois de finalizar o CRUD, preencha seus dados e envie a entrega para o professor.
+                    </p>
+                </div>
+            </div>
+
+            <form id="entrega-form" class="form">
+                <div class="form__grid">
+                    <label class="field">
+                        <span>Nome do aluno</span>
+                        <input id="entregaNome" name="entregaNome" type="text" maxlength="120" placeholder="Seu nome completo" required>
+                    </label>
+
+                    <label class="field">
+                        <span>RM</span>
+                        <input id="entregaRm" name="entregaRm" type="text" maxlength="10" placeholder="RM12345" required>
+                    </label>
+
+                    <label class="field">
+                        <span>Turma</span>
+                        <input id="entregaTurma" name="entregaTurma" type="text" maxlength="30" placeholder="2TDSPW" required>
+                    </label>
+                </div>
+
+                <div class="form__actions">
+                    <button id="entrega-button" type="submit" class="button">Enviar para o webhook</button>
+                    <span id="entrega-status" class="form__mode">Preencha nome, RM e turma para concluir.</span>
+                </div>
+            </form>
+        </section>
+
+        <section class="panel">
+            <div class="panel__header panel__header--stack-mobile">
+                <div>
+                    <p class="eyebrow">Consulta</p>
+                    <h2>Alunos cadastrados</h2>
+                </div>
+
+                <div class="toolbar">
+                    <input id="search-input" class="toolbar__search" type="search" placeholder="Pesquisar por RM ou nome">
+                    <button id="reload-button" type="button" class="button button--ghost">Atualizar</button>
+                </div>
+            </div>
+
+            <p id="status-message" class="status" aria-live="polite"></p>
+
+            <div class="table-wrapper">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>RM</th>
+                            <th>Nome</th>
+                            <th>Data de nascimento</th>
+                            <th>Acoes</th>
+                        </tr>
+                    </thead>
+                    <tbody id="alunos-tbody"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="/app.js" defer></script>
+</body>
+</html>

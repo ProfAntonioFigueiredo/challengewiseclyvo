@@ -1,0 +1,49 @@
+services:
+  oracle-db:
+    image: gvenzl/oracle-free:23-slim-faststart
+    container_name: oracle-db
+    environment:
+      ORACLE_PASSWORD: "OracleRoot123"
+      APP_USER: "APP_USER"
+      APP_USER_PASSWORD: "AppPassword123"
+    ports:
+      - "1521:1521"
+    volumes:
+      - oracle_data:/opt/oracle/oradata
+      - ./sql:/container-entrypoint-initdb.d
+      - ./AWR-Miner:/awr-miner
+    healthcheck:
+      test: ["CMD-SHELL", "healthcheck.sh"]
+      interval: 10s
+      timeout: 5s
+      retries: 15
+      start_period: 40s
+    networks:
+      - challenge_net
+    restart: unless-stopped
+
+  portalweb:
+    build: .
+    image: profantoniofigueiredo/portalweb-oracle:v1
+    container_name: portalweb
+    depends_on:
+      oracle-db:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: "jdbc:oracle:thin:@oracle-db:1521/FREEPDB1"
+      SPRING_DATASOURCE_USERNAME: "APP_USER"
+      SPRING_DATASOURCE_PASSWORD: "AppPassword123"
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: oracle.jdbc.OracleDriver
+      SPRING_JPA_DATABASE_PLATFORM: org.hibernate.dialect.OracleDialect
+    networks:
+      - challenge_net
+    restart: on-failure
+
+networks:
+  challenge_net:
+    driver: bridge
+
+volumes:
+  oracle_data:
